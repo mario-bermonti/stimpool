@@ -57,9 +57,7 @@ class WordPoolCreator(object):
         Accented characters:: á, é, í, ó, ú, ñ, ü
         """
 
-        pool_cleaned = self._pool_original.mask(
-            self._check_accented_characters
-        )
+        pool_cleaned = self._pool_original.mask(self._check_accented_characters)
         self._pool_cleaned = pool_cleaned.dropna()
 
     def _check_accented_characters(self, word):
