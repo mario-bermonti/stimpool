@@ -18,13 +18,16 @@ class WordPoolCreator(object):
         -----------
         pool : Iterable
             Word pool that will be used to create subpool (the default
-            is None, use default word pool)
+            is None, use default word pool).
+            The default pool is taken from `OpenOffice
+        <https://extensions.openoffice.org/en/project/diccionario-de-correccion-ortografica-separacion-silabica-y-sinonimos-en-espanol-puerto-rico>`_
         """
 
         if pool is None:
             pool = self._get_default_pool()
 
-        self.pool_original: pd.Series = pool
+        self._pool_original: pd.Series = pool
+        self._pool_cleaned: pd.Series = self._format_pool(pool)
 
     def _get_default_pool(self) -> Iterable:
         """Get the default word pool."""
@@ -34,6 +37,30 @@ class WordPoolCreator(object):
         pool.name = "original pool"
 
         return pool
+
+    def _format_pool(self, pool):
+        """Format word pool.
+
+        The pool is formatted by converting it in into a pd.Series if
+        necessary and formatting its words.
+
+        Parameters
+        ----------
+        pool : Iterable
+            word pool
+
+        Returns
+        -------
+        pool_formatted : pd.Series
+        """
+
+        if not isinstance(pool, pd.Series):
+            pool = pd.Series(pool)
+
+        pool_formatted: pd.Series = pool.apply(self._normalize_word)
+
+        return pool_formatted
+
     def _normalize_word(self, word):
         """Normalize the word.
 
@@ -79,3 +106,15 @@ class WordPoolCreator(object):
             if char in accented_characters:
                 return True
         return False
+
+    # def get_words_of_length(self, word, minLen, maxLen):
+    #     """returns true if the word has between 2 and 5 letters.
+    #     -----------
+    #     parameters:
+    #     word: word to be analyzed
+    #     """
+
+    #     if len(word) > minLen and len(word) <= maxLen:
+    #         return True
+    #     else:
+    #         return False
