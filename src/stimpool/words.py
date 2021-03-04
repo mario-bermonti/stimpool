@@ -34,3 +34,19 @@ class WordPoolCreator(object):
         pool.name = "original pool"
 
         return pool
+    def _normalize_word(self, word):
+        """Normalize the word.
+
+        Parameters
+        ----------
+        word : str
+            word to be normalized
+
+        Returns
+        -------
+        word_normalized : str
+        """
+
+        word_normalized = word.strip().lower()
+
+        return word_normalized
