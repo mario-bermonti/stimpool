@@ -36,3 +36,26 @@ def test_normalize_word(word_original, word_expected):
     word_observed = word_pool_creator._normalize_word(word_original)
 
     assert word_observed == word_expected
+
+@pytest.mark.parametrize(
+    ("word", "expected"),
+    [
+        # valid
+        ("perro", False),
+        # edge case; this is the expected behavior
+        # blank spaces are handled by other methods
+        ("carro ", False),
+        # invalid
+        ("canción", True),
+        ("así", True),
+        ("güiro", True),
+        ("ñame", True),
+    ]
+)
+def test_check_accented_characters(word, expected):
+    """Test the _check_accented_characters with different cases."""
+
+    word_pool_creator = WordPoolCreator()
+    obs = word_pool_creator._check_accented_characters(word)
+
+    assert obs == expected
