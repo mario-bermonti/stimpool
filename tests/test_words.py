@@ -37,6 +37,7 @@ def test_normalize_word(word_original, word_expected):
 
     assert word_observed == word_expected
 
+
 @pytest.mark.parametrize(
     ("word", "expected"),
     [
@@ -50,7 +51,7 @@ def test_normalize_word(word_original, word_expected):
         ("así", True),
         ("güiro", True),
         ("ñame", True),
-    ]
+    ],
 )
 def test_check_accented_characters(word, expected):
     """Test the _check_accented_characters with different cases."""
