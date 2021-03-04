@@ -50,3 +50,22 @@ class WordPoolCreator(object):
         word_normalized = word.strip().lower()
 
         return word_normalized
+    def _check_accented_characters(self, word):
+        """Checks if the word contains accented characters.
+
+        Parameters
+        ----------
+        word : str
+            word to be analyzed
+
+        Returns
+        -------
+        Bool
+            True if the word contains accented characters; False otherwise
+        """
+
+        accented_characters = "áéíóúñü"
+        for char in word:
+            if char in accented_characters:
+                return True
+        return False
