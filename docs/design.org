@@ -1,0 +1,29 @@
+* General purpose
+  Create stimuli pools for psychological research. It will be focused
+  on text and number stimuli.
+* Requirements
+** Essential
+  - The user must be able to specify the pool from which to generate the
+    stimuli subpool, but if it is not provided, it needs to have a "default"
+    pool.
+  - Should allow the user to run many of the functions for selecting a subpool
+    without having to specify the stimuli pool to each function.
+  - The results should be retrievable at any point.
+  - Results should be provided as an array.
+  - Should handle very large pool sets (i.e., thousands).
+** Nice to have
+  - Should be able to create many subpools in a single run.
+  - Should provide an cli for making it easier to use.
+  - The user should have the option of saving the results to a file.
+* Components
+** Word Pool Creator
+   Creates pools of words for experiments.
+*** Data
+    - original pool
+    - subpool
+*** Actions
+    - Remove affixes
+    - Select words with specific length
+    - Select words without accented characters
+** digits
+   Creates pools of digits for experiments.
