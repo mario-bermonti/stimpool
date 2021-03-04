@@ -50,6 +50,18 @@ class WordPoolCreator(object):
         word_normalized = word.strip().lower()
 
         return word_normalized
+
+    def remove_words_accented_characters(self) -> None:
+        """Remove words with accented characters.
+
+        Accented characters:: á, é, í, ó, ú, ñ, ü
+        """
+
+        pool_cleaned = self._pool_original.mask(
+            self._check_accented_characters
+        )
+        self._pool_cleaned = pool_cleaned.dropna()
+
     def _check_accented_characters(self, word):
         """Checks if the word contains accented characters.
 
