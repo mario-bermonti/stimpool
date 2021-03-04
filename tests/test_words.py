@@ -1,11 +1,11 @@
 """Tests for `words` module."""
 
-# import pytest
+import pytest
 
 from stimpool.words import WordPoolCreator
 
 
-def test_get_default_pool() -> None:
+def test_get_default_pool():
     """Test words._get_default_pool."""
 
     shape_exp = (55457,)
