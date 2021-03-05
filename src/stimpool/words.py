@@ -18,9 +18,7 @@ class WordPoolCreator(object):
         -----------
         pool : Iterable
             Word pool that will be used to create subpool (the default
-            is None, use default word pool).
-            The default pool is taken from `OpenOffice
-        <https://extensions.openoffice.org/en/project/diccionario-de-correccion-ortografica-separacion-silabica-y-sinonimos-en-espanol-puerto-rico>`_
+            is None, use default word pool)
         """
 
         if pool is None:
