@@ -27,7 +27,7 @@ class WordPoolCreator(object):
         self._pool_original: pd.Series = pool
         self._pool_cleaned: pd.Series = self._format_pool(pool)
 
-    def _get_default_pool(self) -> Iterable:
+    def _get_default_pool(self) -> pd.Series:
         """Get the default word pool."""
 
         path = ROOT_DIR / "src" / "stimpool" / "words" / "es_PR.dic"
