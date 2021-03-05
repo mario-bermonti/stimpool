@@ -34,6 +34,30 @@ class WordPoolCreator(object):
         pool.name = "original pool"
 
         return pool
+
+    def _format_pool(self, pool):
+        """Format word pool.
+
+        The pool is formatted by converting it in into a pd.Series if
+        necessary and formatting its words.
+
+        Parameters
+        ----------
+        pool : Iterable
+            word pool
+
+        Returns
+        -------
+        pool_formatted : pd.Series
+        """
+
+        if not isinstance(pool, pd.Series):
+            pool = pd.Series(pool)
+
+        pool_formatted: pd.Series = pool.apply(self._normalize_word)
+
+        return pool_formatted
+
     def _normalize_word(self, word):
         """Normalize the word.
 
