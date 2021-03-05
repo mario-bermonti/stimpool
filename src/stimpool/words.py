@@ -36,7 +36,7 @@ class WordPoolCreator(object):
 
         return pool
 
-    def _format_pool(self, pool):
+    def _format_pool(self, pool: Iterable) -> pd.Series:
         """Format word pool.
 
         The pool is formatted by converting it in into a pd.Series if
@@ -59,7 +59,7 @@ class WordPoolCreator(object):
 
         return pool_formatted
 
-    def _normalize_word(self, word):
+    def _normalize_word(self, word: str) -> str:
         """Normalize the word.
 
         Parameters
@@ -85,8 +85,8 @@ class WordPoolCreator(object):
         pool_cleaned = self._pool_original.mask(self._check_accented_characters)
         self._pool_cleaned = pool_cleaned.dropna()
 
-    def _check_accented_characters(self, word):
-        """Checks if the word contains accented characters.
+    def _check_accented_characters(self, word: str) -> bool:
+        """Check if the word contains accented characters.
 
         Parameters
         ----------
@@ -95,7 +95,7 @@ class WordPoolCreator(object):
 
         Returns
         -------
-        Bool
+        bool
             True if the word contains accented characters; False otherwise
         """
 
