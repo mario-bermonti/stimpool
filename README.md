@@ -12,7 +12,7 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 
-Create stimuli pools for psychological research
+This software helps you create stimuli pools for psychological research.
 
 
 * GitHub repo: <https://github.com/mario-bermonti/stimpool.git>
