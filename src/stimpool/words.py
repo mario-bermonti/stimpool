@@ -25,6 +25,7 @@ class WordPoolCreator(object):
             pool = self._get_default_pool()
 
         self._pool_original: pd.Series = pool
+        self._pool_cleaned: pd.Series = self._format_pool(pool)
 
     def _get_default_pool(self) -> Iterable:
         """Get the default word pool."""
