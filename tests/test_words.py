@@ -5,7 +5,7 @@ import pytest
 from stimpool.words import WordPoolCreator
 
 
-def test_get_default_pool():
+def test_get_default_pool() -> None:
     """Test words._get_default_pool."""
 
     shape_exp = (55457,)
@@ -29,7 +29,7 @@ def test_get_default_pool():
         ("  PErrO", "perro"),
     ],
 )
-def test_normalize_word(word_original, word_expected):
+def test_normalize_word(word_original: str, word_expected: str) -> None:
     """Test the _normalize_word with different cases."""
 
     word_pool_creator = WordPoolCreator()
@@ -53,7 +53,7 @@ def test_normalize_word(word_original, word_expected):
         ("ñame", True),
     ],
 )
-def test_check_accented_characters(word, expected):
+def test_check_accented_characters(word: str, expected: bool) -> None:
     """Test the _check_accented_characters with different cases."""
 
     word_pool_creator = WordPoolCreator()
