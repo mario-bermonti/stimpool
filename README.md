@@ -16,7 +16,7 @@ This software helps you create stimuli pools for psychological research.
 
 
 * GitHub repo: <https://github.com/mario-bermonti/stimpool.git>
-* Documentation: <https://stimpool.readthedocs.io>
+* Documentation: < https://stimpool.readthedocs.io/en/latest/>
 * Free software: BSD
 
 
