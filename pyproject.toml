@@ -8,7 +8,7 @@ authors = ["Mario E. Bermonti Pérez <mbermonti1132@gmail.com>"]
 readme = "README.md"
 homepage = "https://github.com/mario-bermonti/stimpool"
 repository = "https://github.com/mario-bermonti/stimpool"
-documentation = "https://stimpool.readthedocs.io"
+documentation = "https://stimpool.readthedocs.io/en/latest/"
 keywords = ["stimpool"]
 classifiers=[
     "Development Status :: 2 - Pre-Alpha",
