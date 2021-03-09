@@ -1,6 +1,6 @@
 
-BSD License
-===========
+BSD 3-clause
+============
 
 Copyright (c) 2021, Mario E. Bermonti Pérez
 All rights reserved.
