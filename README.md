@@ -3,7 +3,7 @@
 
 
 [![PyPI - Version](https://img.shields.io/pypi/v/stimpool.svg)](https://pypi.python.org/pypi/stimpool)
-[![PyPI - License](https://img.shields.io/pypi/l/stimpool.svg)](https://pypi.python.org/pypi/stimpool)
+[![GitHub](https://img.shields.io/github/license/mario-bermonti/stimpool)]
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/stimpool.svg)](https://pypi.python.org/pypi/stimpool)
 [![Tests](https://github.com/mario-bermonti/stimpool/workflows/tests/badge.svg)](https://github.com/mario-bermonti/stimpool/actions?workflow=tests)
 [![codecov](https://codecov.io/gh/mario-bermonti/stimpool/branch/master/graph/badge.svg?token=GGADPVQ5G2)](https://codecov.io/gh/mario-bermonti/stimpool)
