@@ -1,7 +1,7 @@
 """Create word pools."""
 
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Any, Callable, Iterable, Optional
 
 import pandas as pd
 
@@ -104,3 +104,27 @@ class WordPoolCreator(object):
             if char in accented_characters:
                 return True
         return False
+
+    def _get_words_meeting_criteria(
+        self, func_checks_criteria: Callable, **kwargs: Optional[Any]
+    ) -> pd.Series:
+        """Run specified analysis on words (helper function).
+
+        Parameters
+        ----------
+        func_checks_criteria : Callable
+            Function that analyzes the words to determine which met the
+            criteria.
+        **kwargs : Any
+            Key-word args to pass to func_checks_criteria
+
+        Returns
+        -------
+        pool_cleaned : pd.Series
+            Words that met the criteria.
+        """
+
+        pool_meeting_criteria = self._pool_cleaned.mask(func_checks_criteria)
+        pool_cleaned = pool_meeting_criteria.dropna()
+
+        return pool_cleaned
