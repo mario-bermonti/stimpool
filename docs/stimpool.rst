@@ -1,26 +1,15 @@
-stimpool package
-================
-
-Submodules
-----------
-
-..
-   stimpool.cli module
-   -------------------
-
-   .. automodule:: stimpool.cli
+stimpool functionality
+======================
 
 Word pools (stimpool.words)
-----------------------------------
+---------------------------
 
 .. automodule:: stimpool.words
    :members:
    :undoc-members:
 
 ..
-   Module contents
-   ---------------
+   command-line interface (stimpool.cli)
+   -------------------------------------
 
-   .. automodule:: stimpool
-      :members:
-      :undoc-members:
+   .. automodule:: stimpool.cli

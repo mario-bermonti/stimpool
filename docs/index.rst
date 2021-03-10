@@ -6,10 +6,7 @@ Welcome to stimpool's documentation!
 
    readme
    installation
-   usage
    stimpool
-   ..
-      modules
    changelog
 
 Indices and tables
