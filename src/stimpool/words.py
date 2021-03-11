@@ -83,7 +83,12 @@ class WordPoolCreator(object):
         Accented characters:: á, é, í, ó, ú, ñ, ü
         """
 
-        self._pool_cleaned = self._get_words_metting_criteria(self._check_accented_characters)
+        pool_cleaned = self._get_words_meeting_criteria(
+            func_checks_criteria=self._check_accented_characters,
+            how="remove",
+        )
+
+        self._pool_cleaned = pool_cleaned
 
     def _check_accented_characters(self, word: str) -> bool:
         """Check if the word contains accented characters.
