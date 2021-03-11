@@ -105,7 +105,7 @@ class WordPoolCreator(object):
         return False
 
     def _get_words_meeting_criteria(
-        self, func_checks_criteria: Callable, **kwargs: Optional[Any]
+        self, func_checks_criteria: Callable, how: str = "keep", **kwargs: Optional[Any]
     ) -> pd.Series:
         """Run specified analysis on words (helper function).
 
@@ -114,6 +114,8 @@ class WordPoolCreator(object):
         func_checks_criteria : Callable
             Function that analyzes the words to determine which met the
             criteria.
+        how : {"keep", "remove"}, str  # noqa: DAR103 (numpy style)
+            Determines if words meeting the criteria should be kept or removed.
         **kwargs : Any
             Key-word args to pass to func_checks_criteria
 
@@ -123,7 +125,12 @@ class WordPoolCreator(object):
             Words that met the criteria.
         """
 
-        pool_meeting_criteria = self._pool_cleaned.mask(func_checks_criteria)
+        pool_meeting_criteria_flags = self._pool_cleaned.apply(func_checks_criteria)
+        if how == "keep":
+            pool_meeting_criteria = self._pool_cleaned.where(pool_meeting_criteria_flags)
+        elif how == "remove":
+            pool_meeting_criteria = self._pool_cleaned.mask(pool_meeting_criteria_flags)
+
         pool_cleaned = pool_meeting_criteria.dropna()
 
         return pool_cleaned
