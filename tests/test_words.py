@@ -81,3 +81,29 @@ def test_get_words_meeting_criteria(words: List[str], pool_expected: pd.Series, 
     )
 
     assert pool_obs.equals(pool_obs)
+
+
+@pytest.mark.parametrize(
+    ("word", "min_len", "max_len", "exp"),
+    [
+        # only min
+        ("perro", 1, None, True),
+        ("perro", 6, None, False),
+        # only max
+        ("perro", None, 6, True),
+        ("perro", None, 1, False),
+        # None; special case
+        ("perro", None, None, True),
+        ("perro", None, None, True),
+        # both
+        ("perro", 1, 5, True),
+        ("perro", 1, 4, False),
+    ],
+)
+def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> None:
+    """Test the _check_word_length with different cases."""
+
+    word_pool_creator = WordPoolCreator()
+    obs = word_pool_creator._check_word_length(word, min_len, max_len)
+
+    assert obs == exp
