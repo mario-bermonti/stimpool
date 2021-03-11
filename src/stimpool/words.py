@@ -192,7 +192,7 @@ class WordPoolCreator(object):
             Words that met the criteria.
         """
 
-        pool_meeting_criteria_flags = self._pool_cleaned.apply(func_checks_criteria)
+        pool_meeting_criteria_flags = self._pool_cleaned.apply(func_checks_criteria, **kwargs)
         if how == "keep":
             pool_meeting_criteria = self._pool_cleaned.where(pool_meeting_criteria_flags)
         elif how == "remove":
