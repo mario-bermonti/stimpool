@@ -81,7 +81,10 @@ def test_get_words_meeting_criteria(words: List[str], pool_expected: pd.Series, 
         how=how,
     )
 
-    assert pool_obs.equals(pool_obs)
+    pool_obs = pool_obs.reset_index(drop=True)
+    pool_expected = pool_expected.reset_index(drop=True)
+    assert_series_equal(pool_obs, pool_expected, check_dtype=False, check_index_type=False)
+    assert pool_obs.equals(pool_expected)
 
 
 @pytest.mark.parametrize(
