@@ -1,9 +1,10 @@
 """Tests for `words` module."""
 
-from typing import List
+from typing import List, Optional
 
 import pandas as pd
 import pytest
+from pandas.testing import assert_series_equal
 
 from stimpool.words import WordPoolCreator
 
@@ -81,3 +82,98 @@ def test_get_words_meeting_criteria(words: List[str], pool_expected: pd.Series, 
     )
 
     assert pool_obs.equals(pool_obs)
+
+
+@pytest.mark.parametrize(
+    ("word", "min_len", "max_len", "exp"),
+    [
+        # only min
+        ("perro", 1, None, True),
+        ("perro", 6, None, False),
+        # only max
+        ("perro", None, 6, True),
+        ("perro", None, 1, False),
+        # None; special case
+        ("perro", None, None, True),
+        ("perro", None, None, True),
+        # both
+        ("perro", 1, 5, True),
+        ("perro", 1, 4, False),
+    ],
+)
+def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> None:
+    """Test the _check_word_length with different cases."""
+
+    word_pool_creator = WordPoolCreator()
+    obs = word_pool_creator._check_word_length(word, min_len, max_len)
+
+    assert obs == exp
+
+
+@pytest.mark.parametrize(
+    ("words", "min_len", "max_len", "exp"),
+    [
+        # only min
+        # all meet criteria
+        (
+            ["al", "gato", "cabeza", "periódico"],
+            1,
+            None,
+            pd.Series(["al", "gato", "cabeza", "periódico"]),
+        ),
+        # only min
+        # some meet criteria
+        (["al", "gato", "cabeza", "periódico"], 6, None, pd.Series(["cabeza", "periódico"])),
+        # only min
+        # none meet criteria
+        (["al", "gato", "cabeza", "periódico"], 15, None, pd.Series([])),
+        # only max
+        # all meet criteria
+        (
+            ["al", "gato", "cabeza", "periódico"],
+            None,
+            15,
+            pd.Series(["al", "gato", "cabeza", "periódico"]),
+        ),
+        # only max
+        # some meet criteria
+        (["al", "gato", "cabeza", "periódico"], None, 5, pd.Series(["al", "gato"])),
+        # only max
+        # none meet criteria
+        (["al", "gato", "cabeza", "periódico"], None, 1, pd.Series([])),
+        # only min y max
+        # all meet criteria
+        (
+            ["al", "gato", "cabeza", "periódico"],
+            0,
+            15,
+            pd.Series(["al", "gato", "cabeza", "periódico"]),
+        ),
+        # only min y max
+        # some meet criteria
+        (["al", "gato", "cabeza", "periódico"], 2, 5, pd.Series(["al", "gato"])),
+        # only min y max
+        # none meet criteria
+        (["al", "gato", "cabeza", "periódico"], 3, 1, pd.Series([])),
+    ],
+)
+def test_get_words_of_length(
+    words: List[str], min_len: Optional[int], max_len: Optional[int], exp: pd.Series
+) -> None:
+    """Test the _get_words_of_length with different cases."""
+
+    word_pool_creator = WordPoolCreator(words)
+    word_pool_creator.get_words_of_length(min_len, max_len)
+    obs: pd.Series = word_pool_creator._pool_cleaned
+
+    obs = obs.reset_index(drop=True)
+    exp = exp.reset_index(drop=True)
+    assert_series_equal(obs, exp, check_dtype=False, check_index_type=False)
+
+
+def test_get_words_of_length_exception() -> None:
+    """Test that _get_words_of_length raises exception if no min or max length is specified."""
+
+    word_pool_creator = WordPoolCreator()
+    with pytest.raises(ValueError):
+        word_pool_creator.get_words_of_length()
