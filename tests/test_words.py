@@ -81,7 +81,7 @@ def test_get_words_meeting_criteria(words: List[str], pool_expected: pd.Series, 
         how=how,
     )
 
-    assert pool_obs.equals(pool_obs)
+    assert pool_obs.equals(pool_expected)
 
 
 @pytest.mark.parametrize(
