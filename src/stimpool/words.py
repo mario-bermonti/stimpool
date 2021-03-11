@@ -111,6 +111,36 @@ class WordPoolCreator(object):
         else:
             return False
 
+    def _check_word_length(self, word: str, min_len: int = None, max_len: int = None) -> bool:
+        """Check that the length of the word meets the established limits.
+
+        Parameters
+        ----------
+        word : str
+            word to be analyzed
+        min_len : int
+            Minimum word length (defaults to None; no min length).
+        max_len : int
+            Maximum word length (defaults to None; no max length).
+
+        Returns
+        -------
+        bool
+            True if the word is within the specified length; False otherwise.
+        """
+
+        word_length = len(word)
+
+        if min_len is None:
+            min_len = 0
+        if max_len is None:
+            max_len = word_length
+
+        if word_length >= min_len and word_length <= max_len:
+            return True
+        else:
+            return False
+
     def _get_words_meeting_criteria(
         self, func_checks_criteria: Callable, how: str = "keep", **kwargs: Optional[Any]
     ) -> pd.Series:
