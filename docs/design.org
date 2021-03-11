@@ -25,5 +25,10 @@
     - Remove affixes
     - Select words with specific length
     - Select words without accented characters
+    - Pattern:
+      + api > helper function > check each element
+      + The helper function abstracts what is common to all analyses (api)
+      + Because pd.Series mask is used, the function that checks each element
+        must return true if the
 ** digits
    Creates pools of digits for experiments.

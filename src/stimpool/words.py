@@ -1,7 +1,8 @@
 """Create word pools."""
 
+import re
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Any, Callable, Iterable, Optional
 
 import pandas as pd
 
@@ -24,7 +25,7 @@ class WordPoolCreator(object):
         if pool is None:
             pool = self._get_default_pool()
 
-        self._pool_original: pd.Series = pool
+        self._pool_original: pd.Series = pool  # shouldn't be modified
         self._pool_cleaned: pd.Series = self._format_pool(pool)
 
     def _get_default_pool(self) -> pd.Series:
@@ -76,14 +77,18 @@ class WordPoolCreator(object):
 
         return word_normalized
 
-    def remove_words_accented_characters(self) -> None:
-        """Remove words with accented characters.
+    def get_words_without_accented_characters(self) -> None:
+        """Get words without accented characters.
 
         Accented characters:: á, é, í, ó, ú, ñ, ü
         """
 
-        pool_cleaned = self._pool_original.mask(self._check_accented_characters)
-        self._pool_cleaned = pool_cleaned.dropna()
+        pool_cleaned = self._get_words_meeting_criteria(
+            func_checks_criteria=self._check_accented_characters,
+            how="remove",
+        )
+
+        self._pool_cleaned = pool_cleaned
 
     def _check_accented_characters(self, word: str) -> bool:
         """Check if the word contains accented characters.
@@ -99,8 +104,40 @@ class WordPoolCreator(object):
             True if the word contains accented characters; False otherwise
         """
 
-        accented_characters = "áéíóúñü"
-        for char in word:
-            if char in accented_characters:
-                return True
-        return False
+        pattern_accented_characters = re.compile("[áéíóúñü]")
+        matches = pattern_accented_characters.findall(word)
+        if len(matches) > 0:
+            return True
+        else:
+            return False
+
+    def _get_words_meeting_criteria(
+        self, func_checks_criteria: Callable, how: str = "keep", **kwargs: Optional[Any]
+    ) -> pd.Series:
+        """Run specified analysis on words (helper function).
+
+        Parameters
+        ----------
+        func_checks_criteria : Callable
+            Function that analyzes the words to determine which met the
+            criteria.
+        how : {"keep", "remove"}, str  # noqa: DAR103 (numpy style)
+            Determines if words meeting the criteria should be kept or removed.
+        **kwargs : Any
+            Key-word args to pass to func_checks_criteria
+
+        Returns
+        -------
+        pool_cleaned : pd.Series
+            Words that met the criteria.
+        """
+
+        pool_meeting_criteria_flags = self._pool_cleaned.apply(func_checks_criteria)
+        if how == "keep":
+            pool_meeting_criteria = self._pool_cleaned.where(pool_meeting_criteria_flags)
+        elif how == "remove":
+            pool_meeting_criteria = self._pool_cleaned.mask(pool_meeting_criteria_flags)
+
+        pool_cleaned = pool_meeting_criteria.dropna()
+
+        return pool_cleaned

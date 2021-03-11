@@ -1,5 +1,8 @@
 """Tests for `words` module."""
 
+from typing import List
+
+import pandas as pd
 import pytest
 
 from stimpool.words import WordPoolCreator
@@ -60,3 +63,21 @@ def test_check_accented_characters(word: str, expected: bool) -> None:
     obs = word_pool_creator._check_accented_characters(word)
 
     assert obs == expected
+
+
+@pytest.mark.parametrize(
+    ("words", "pool_expected", "how"),
+    [
+        (["yes", "no", "yes", "no"], pd.Series(["yes", "yes"]), "keep"),
+        (["yes", "no", "yes", "no"], pd.Series(["no", "no"]), "remove"),
+    ],
+)
+def test_get_words_meeting_criteria(words: List[str], pool_expected: pd.Series, how: str) -> None:
+    """Test _get_words_meeting_criteria with different cases."""
+    word_pool_creator = WordPoolCreator(words)
+    pool_obs: pd.Series = word_pool_creator._get_words_meeting_criteria(
+        func_checks_criteria=lambda x: "yes" == x,
+        how=how,
+    )
+
+    assert pool_obs.equals(pool_obs)
