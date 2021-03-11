@@ -1,5 +1,6 @@
 """Create word pools."""
 
+import re
 from pathlib import Path
 from typing import Any, Callable, Iterable, Optional
 
@@ -98,11 +99,12 @@ class WordPoolCreator(object):
             True if the word contains accented characters; False otherwise
         """
 
-        accented_characters = "áéíóúñü"
-        for char in word:
-            if char in accented_characters:
-                return True
-        return False
+        pattern_accented_characters = re.compile("[áéíóúñü]")
+        matches = pattern_accented_characters.findall(word)
+        if len(matches) > 0:
+            return True
+        else:
+            return False
 
     def _get_words_meeting_criteria(
         self, func_checks_criteria: Callable, how: str = "keep", **kwargs: Optional[Any]
