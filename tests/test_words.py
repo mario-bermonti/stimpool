@@ -67,24 +67,24 @@ def test_check_accented_characters(word: str, expected: bool) -> None:
 
 
 @pytest.mark.parametrize(
-    ("words", "pool_expected", "how"),
+    ("words", "exp", "how"),
     [
         (["yes", "no", "yes", "no"], pd.Series(["yes", "yes"]), "keep"),
         (["yes", "no", "yes", "no"], pd.Series(["no", "no"]), "remove"),
     ],
 )
-def test_get_words_meeting_criteria(words: List[str], pool_expected: pd.Series, how: str) -> None:
+def test_get_words_meeting_criteria(words: List[str], exp: pd.Series, how: str) -> None:
     """Test _get_words_meeting_criteria with different cases."""
     word_pool_creator = WordPoolCreator(words)
-    pool_obs: pd.Series = word_pool_creator._get_words_meeting_criteria(
+    obs: pd.Series = word_pool_creator._get_words_meeting_criteria(
         func_checks_criteria=lambda x: "yes" == x,
         how=how,
     )
 
-    pool_obs = pool_obs.reset_index(drop=True)
-    pool_expected = pool_expected.reset_index(drop=True)
-    assert_series_equal(pool_obs, pool_expected, check_dtype=False, check_index_type=False)
-    assert pool_obs.equals(pool_expected)
+    obs = obs.reset_index(drop=True)
+    exp = exp.reset_index(drop=True)
+    assert_series_equal(obs, exp, check_dtype=False, check_index_type=False)
+    assert obs.equals(exp)
 
 
 @pytest.mark.parametrize(
