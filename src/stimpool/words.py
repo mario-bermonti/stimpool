@@ -76,8 +76,8 @@ class WordPoolCreator(object):
 
         return word_normalized
 
-    def remove_words_accented_characters(self) -> None:
-        """Remove words with accented characters.
+    def get_words_without_accented_characters(self) -> None:
+        """Get words without accented characters.
 
         Accented characters:: á, é, í, ó, ú, ñ, ü
         """
