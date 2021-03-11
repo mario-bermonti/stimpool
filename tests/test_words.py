@@ -80,7 +80,7 @@ def test_get_words_meeting_criteria(words: List[str], exp: pd.Series, how: str) 
         func_checks_criteria=lambda x: "yes" == x,
         how=how,
     )
-      
+
     obs = obs.reset_index(drop=True)
     exp = exp.reset_index(drop=True)
     assert_series_equal(obs, exp, check_dtype=False, check_index_type=False)
@@ -149,8 +149,7 @@ def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> 
         (
             ["al", "gato", "cabeza", "periódico"],
             0,
-           
-          15,
+            15,
             pd.Series(["al", "gato", "cabeza", "periódico"]),
         ),
         # only min y max
