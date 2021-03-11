@@ -111,6 +111,36 @@ class WordPoolCreator(object):
         else:
             return False
 
+    def get_words_of_length(self, min_len: int = None, max_len: int = None) -> None:
+        """Get words of the length specified.
+
+        Parameters
+        ----------
+        min_len : int
+            Minimum word length (defaults to None; no min length). If a min length is
+            not specified, a max length has to be specified.
+        max_len : int
+            Maximum word length (defaults to None; no max length). If a max length is
+            not specified, a min length has to be specified.
+
+        Raises
+        ------
+        ValueError
+            If neither min_len nor max_len are specified.
+        """
+
+        if min_len is None and max_len is None:
+            raise ValueError("Either min_len or a max_len have to be specified")
+
+        pool_cleaned = self._get_words_meeting_criteria(
+            func_checks_criteria=self._check_word_length,
+            how="keep",
+            min_len=min_len,
+            max_len=max_len,
+        )
+
+        self._pool_cleaned = pool_cleaned
+
     def _check_word_length(self, word: str, min_len: int = None, max_len: int = None) -> bool:
         """Check that the length of the word meets the established limits.
 
