@@ -34,18 +34,18 @@ release = stimpool.__version__
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx.ext.autodoc",
-    "sphinx.ext.viewcode",
+    "sphinx.ext.autodoc",  # autodocument api
+    "sphinx.ext.viewcode",  # include link to code
     "sphinx.ext.autosummary",  # summary table
     "sphinx.ext.napoleon",  # write docstrings in numpy or google
     "recommonmark",
-    "sphinx.ext.coverage",
+    "sphinx.ext.coverage",  # include coverage stats
     "sphinx_autodoc_typehints",  # insert typehints into the final docs
     "sphinx_rtd_theme",
 ]
 
-# default for autodoc
 autoclass_content = "class"
+# autodoc config
 autodoc_member_order = "bysource"
 # autodoc_default_flags = {
 #     'members': '',
