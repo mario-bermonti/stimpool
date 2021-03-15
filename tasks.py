@@ -157,11 +157,11 @@ def coverage(c, fmt="report", open_browser=False):
 
 @task(
     help={
-        "serve": "Build the docs watching for changes",
-        "open_browser": "Open the docs in the web browser",
+        "serve": "Build the docs watching for changes (Default=True)",
+        "open_browser": "Open the docs in the web browser (Default=True)",
     }
 )
-def docs(c, serve=False, open_browser=False):
+def docs(c, serve=True, open_browser=True):
     # type: (Context, bool, bool) -> None
     """Build documentation."""
     _run(c, f"sphinx-apidoc -o {DOCS_DIR} {SOURCE_DIR}")
