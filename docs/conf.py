@@ -44,14 +44,15 @@ extensions = [
     "sphinx_rtd_theme",
 ]
 
-autoclass_content = "class"
 # autodoc config
+autoclass_content = "both"  # autodoc class and its __init__ docstrings
 autodoc_member_order = "bysource"
 # autodoc_default_flags = {
 #     'members': '',
 #     'undoc-members': 'code,error_template',
 #     'exclude-members': '__dict__,__weakref__',
 # }
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
