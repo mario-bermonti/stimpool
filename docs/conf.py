@@ -46,12 +46,7 @@ extensions = [
 
 # autodoc config
 autoclass_content = "both"  # autodoc class and its __init__ docstrings
-autodoc_member_order = "bysource"
-# autodoc_default_flags = {
-#     'members': '',
-#     'undoc-members': 'code,error_template',
-#     'exclude-members': '__dict__,__weakref__',
-# }
+autodoc_default_options = {"member-order": "bysource", "members": True}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
