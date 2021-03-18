@@ -201,3 +201,9 @@ class WordPoolCreator(object):
         pool_cleaned = pool_meeting_criteria.dropna()
 
         return pool_cleaned
+
+    @property
+    def words(self) -> pd.Series:
+        """Return the clean word pool."""
+
+        return self._pool_cleaned
