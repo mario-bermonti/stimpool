@@ -13,9 +13,9 @@ keywords = ["stimpool"]
 classifiers=[
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
-
+    
     "License :: OSI Approved :: BSD License",
-
+    
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.6",
@@ -35,7 +35,7 @@ stimpool = 'stimpool.cli:main'
 
 
 [tool.poetry.dependencies]
-python = "3.6.1"
+python = "<3.10,^3.6.1"
 click = "^7.1.2"
 pandas = ""
 sphinx-rtd-theme = "^0.5.1"
