@@ -12,25 +12,53 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 
-This software helps you create stimuli pools for psychological research.
+Easily create stimuli pools for cognitive, learning, and psycholinguistics research
 
 
 * GitHub repo: <https://github.com/mario-bermonti/stimpool.git>
-* Documentation: <https://stimpool.readthedocs.io/en/latest/>
-* Free software: BSD
+* Documentation: [][project_docs]
+* Free software: BSD-3 Clause
 
 
 ## Features
 
-* TODO
+* Easily create Spanish word pools for research
+* Specify the characteristics that meet your needs
+* Provide your own word pool or use the default one
 
-## Quickstart
+## Getting Started
+### Installation
+`pip install stimpool`
 
-TODO
+### Usage
+```python
+from stimpool.words import WordPoolCreator
+words = ["gato", "canción", "oso", "otorrinolaringólogo"]
+word_pool = WordPoolCreator(words)
+word_pool.get_words_without_accented_characters()
+print(word_pool.words)
+```
+
+Check [the documentation][project_docs] for more details.
+
+## Contributing to this project
+  All contributions are welcome!
+
+  If you encounter any bugs, please open an issue on GitHub.
+
+  To contribute to this project, clone the repository, add your contribution,
+  and submit a pull request. Be sure to run the tests or provided a test-case
+  if adding new functionality.
+
+## Author
+  This project was developed by Mario E. Bermonti-Pérez as part of
+  his academic research. Feel free to contact me at
+  [mbermonti@psm.edu](mailto:mbermonti@psm.edu)  or
+  [mbermonti1132@gmail.com](mailto:mbermonti1132@gmail.com)
 
 ## Credits
-
 This package was created with [Cookiecutter][cookiecutter] and the [fedejaure/cookiecutter-modern-pypackage][cookiecutter-modern-pypackage] project template.
 
 [cookiecutter]: https://github.com/cookiecutter/cookiecutter
 [cookiecutter-modern-pypackage]: https://github.com/fedejaure/cookiecutter-modern-pypackage
+[project_docs]: https://stimpool.readthedocs.io/en/latest/
