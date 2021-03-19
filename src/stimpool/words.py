@@ -12,7 +12,7 @@ ROOT_DIR = Path().resolve()
 class WordPoolCreator(object):
     """Create word pools."""
 
-    def __init__(self, pool: Optional[Iterable] = None) -> None:
+    def __init__(self, pool: Optional[Iterable[str]] = None) -> None:
         """Create a word pool.
 
         Parameters
