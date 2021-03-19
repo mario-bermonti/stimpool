@@ -52,6 +52,11 @@ class WordPoolCreator(object):
         pool_formatted: pd.Series = self._format_pool(pool_current)
         pool_original: pd.Series[str] = pool_formatted.copy()
         pool_cleaned: pd.Series[str] = pool_formatted.copy()
+
+        # if clean_conjugation_suffix:
+        #     pool_cleaned: pd.Series = self._clean_conjugation_suffix(pool_cleaned)
+        # type: ignore
+
         return pool_original, pool_cleaned
 
     def _get_default_pool(self) -> pd.Series:
