@@ -2,7 +2,7 @@
 
 import re
 from pathlib import Path
-from typing import Any, Callable, Iterable, Optional
+from typing import Any, Callable, Iterable, Optional, Tuple
 
 import pandas as pd
 
@@ -12,7 +12,7 @@ ROOT_DIR = Path().resolve()
 class WordPoolCreator(object):
     """Create word pools."""
 
-    def __init__(self, pool: Optional[Iterable] = None) -> None:
+    def __init__(self, pool: Optional[Iterable[str]] = None) -> None:
         """Create a word pool.
 
         Parameters
@@ -27,6 +27,37 @@ class WordPoolCreator(object):
 
         self._pool_original: pd.Series = pool  # shouldn't be modified
         self._pool_cleaned: pd.Series = self._format_pool(pool)
+
+    def _prepare_pool(self, pool: Optional[Iterable[str]]) -> Tuple[pd.Series, pd.Series]:
+        """Prepare word pool to be used.
+
+        Parameters
+        ----------
+        pool : Iterable
+            Word pool that will be used to create subpool.
+
+        Returns
+        -------
+        word_pools
+            Original word pool and its formatted word version, which will be
+            used to create the subpool.
+        """
+
+        if pool is None:
+            pool_current: pd.Series = self._get_default_pool()
+        else:
+            # redefining makes sense; see mypy issue #6233
+            pool_current: Iterable = pool  # type: ignore
+
+        pool_formatted: pd.Series = self._format_pool(pool_current)
+        pool_original: pd.Series[str] = pool_formatted.copy()
+        pool_cleaned: pd.Series[str] = pool_formatted.copy()
+
+        # if clean_conjugation_suffix:
+        #     pool_cleaned: pd.Series = self._clean_conjugation_suffix(pool_cleaned)
+        # type: ignore
+
+        return pool_original, pool_cleaned
 
     def _get_default_pool(self) -> pd.Series:
         """Get the default word pool."""
