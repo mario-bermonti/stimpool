@@ -22,11 +22,7 @@ class WordPoolCreator(object):
             is None, use default word pool)
         """
 
-        if pool is None:
-            pool = self._get_default_pool()
-
-        self._pool_original: pd.Series = pool  # shouldn't be modified
-        self._pool_cleaned: pd.Series = self._format_pool(pool)
+        self._pool_original, self._pool_cleaned = self._prepare_pool(pool)
 
     def _prepare_pool(self, pool: Optional[Iterable[str]]) -> Tuple[pd.Series, pd.Series]:
         """Prepare word pool to be used.
