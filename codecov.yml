@@ -5,10 +5,12 @@ coverage:
       # setting a very low target so the CI "never" fails
       # I'm more interested in knowing how much is tested
       target: "50"
+      informational: true
     patch:
       default:
       # setting a very low target so the CI "never" fails
       # I'm more interested in knowing how much is tested
       target: "50"
+      informational: true
 comment:
   require_changes: true
