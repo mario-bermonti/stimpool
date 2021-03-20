@@ -16,7 +16,7 @@ Easily create stimuli pools for cognitive, learning, and psycholinguistics resea
 
 
 * GitHub repo: <https://github.com/mario-bermonti/stimpool.git>
-* Documentation: [][project_docs]
+* Documentation: <https://stimpool.readthedocs.io/en/latest/>
 * Free software: BSD-3 Clause
 
 
