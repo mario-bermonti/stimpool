@@ -9,7 +9,7 @@ import pandas as pd
 ROOT_DIR = Path().resolve()
 
 
-class WordPoolCreator(object):
+class WordPool(object):
     """Create word pools."""
 
     def __init__(self, pool: Optional[Iterable[str]] = None) -> None:
@@ -104,7 +104,7 @@ class WordPoolCreator(object):
 
         return word_normalized
 
-    def get_words_without_accented_characters(self) -> None:
+    def select_words_without_accented_characters(self) -> None:
         """Get words without accented characters.
 
         Accented characters:: á, é, í, ó, ú, ñ, ü
@@ -138,7 +138,7 @@ class WordPoolCreator(object):
         else:
             return False
 
-    def get_words_of_length(self, min_len: int = None, max_len: int = None) -> None:
+    def select_words_of_length(self, min_len: int = None, max_len: int = None) -> None:
         """Get words of the length specified.
 
         Parameters

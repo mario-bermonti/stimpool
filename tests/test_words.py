@@ -6,14 +6,14 @@ import pandas as pd
 import pytest
 from pandas.testing import assert_series_equal
 
-from stimpool.words import WordPoolCreator
+from stimpool.words import WordPool
 
 
 def test_get_default_pool() -> None:
     """Test words._get_default_pool."""
 
     shape_exp = (55457,)
-    word_pool_creator = WordPoolCreator()
+    word_pool_creator = WordPool()
     word_pool = word_pool_creator._get_default_pool()
     shape_obs = word_pool.shape
 
@@ -36,7 +36,7 @@ def test_get_default_pool() -> None:
 def test_normalize_word(word_original: str, word_expected: str) -> None:
     """Test the _normalize_word with different cases."""
 
-    word_pool_creator = WordPoolCreator()
+    word_pool_creator = WordPool()
     word_observed = word_pool_creator._normalize_word(word_original)
 
     assert word_observed == word_expected
@@ -60,7 +60,7 @@ def test_normalize_word(word_original: str, word_expected: str) -> None:
 def test_check_accented_characters(word: str, expected: bool) -> None:
     """Test the _check_accented_characters with different cases."""
 
-    word_pool_creator = WordPoolCreator()
+    word_pool_creator = WordPool()
     obs = word_pool_creator._check_accented_characters(word)
 
     assert obs == expected
@@ -75,7 +75,7 @@ def test_check_accented_characters(word: str, expected: bool) -> None:
 )
 def test_get_words_meeting_criteria(words: List[str], exp: pd.Series, how: str) -> None:
     """Test _get_words_meeting_criteria with different cases."""
-    word_pool_creator = WordPoolCreator(words)
+    word_pool_creator = WordPool(words)
     obs: pd.Series = word_pool_creator._get_words_meeting_criteria(
         func_checks_criteria=lambda x: "yes" == x,
         how=how,
@@ -107,7 +107,7 @@ def test_get_words_meeting_criteria(words: List[str], exp: pd.Series, how: str) 
 def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> None:
     """Test the _check_word_length with different cases."""
 
-    word_pool_creator = WordPoolCreator()
+    word_pool_creator = WordPool()
     obs = word_pool_creator._check_word_length(word, min_len, max_len)
 
     assert obs == exp
@@ -160,13 +160,13 @@ def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> 
         (["al", "gato", "cabeza", "periódico"], 3, 1, pd.Series([])),
     ],
 )
-def test_get_words_of_length(
+def test_select_words_of_length(
     words: List[str], min_len: Optional[int], max_len: Optional[int], exp: pd.Series
 ) -> None:
-    """Test the _get_words_of_length with different cases."""
+    """Test the _select_words_of_length with different cases."""
 
-    word_pool_creator = WordPoolCreator(words)
-    word_pool_creator.get_words_of_length(min_len, max_len)
+    word_pool_creator = WordPool(words)
+    word_pool_creator.select_words_of_length(min_len, max_len)
     obs: pd.Series = word_pool_creator._pool_cleaned
 
     obs = obs.reset_index(drop=True)
@@ -174,9 +174,9 @@ def test_get_words_of_length(
     assert_series_equal(obs, exp, check_dtype=False, check_index_type=False)
 
 
-def test_get_words_of_length_exception() -> None:
-    """Test that _get_words_of_length raises exception if no min or max length is specified."""
+def test_select_words_of_length_exception() -> None:
+    """Test that _select_words_of_length raises exception if no min or max length is specified."""
 
-    word_pool_creator = WordPoolCreator()
+    word_pool_creator = WordPool()
     with pytest.raises(ValueError):
-        word_pool_creator.get_words_of_length()
+        word_pool_creator.select_words_of_length()
