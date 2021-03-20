@@ -35,7 +35,7 @@ Easily create stimuli pools for cognitive, learning, and psycholinguistics resea
 from stimpool.words import WordPool
 words = ["gato", "canción", "oso", "otorrinolaringólogo"]
 word_pool = WordPool(words)
-word_pool.get_words_without_accented_characters()
+word_pool.select_words_without_accented_characters()
 print(word_pool.words)
 ```
 

@@ -104,7 +104,7 @@ class WordPool(object):
 
         return word_normalized
 
-    def get_words_without_accented_characters(self) -> None:
+    def select_words_without_accented_characters(self) -> None:
         """Get words without accented characters.
 
         Accented characters:: á, é, í, ó, ú, ñ, ü
@@ -138,7 +138,7 @@ class WordPool(object):
         else:
             return False
 
-    def get_words_of_length(self, min_len: int = None, max_len: int = None) -> None:
+    def select_words_of_length(self, min_len: int = None, max_len: int = None) -> None:
         """Get words of the length specified.
 
         Parameters

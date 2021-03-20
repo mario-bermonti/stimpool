@@ -160,13 +160,13 @@ def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> 
         (["al", "gato", "cabeza", "periódico"], 3, 1, pd.Series([])),
     ],
 )
-def test_get_words_of_length(
+def test_select_words_of_length(
     words: List[str], min_len: Optional[int], max_len: Optional[int], exp: pd.Series
 ) -> None:
-    """Test the _get_words_of_length with different cases."""
+    """Test the _select_words_of_length with different cases."""
 
     word_pool_creator = WordPool(words)
-    word_pool_creator.get_words_of_length(min_len, max_len)
+    word_pool_creator.select_words_of_length(min_len, max_len)
     obs: pd.Series = word_pool_creator._pool_cleaned
 
     obs = obs.reset_index(drop=True)
@@ -174,9 +174,9 @@ def test_get_words_of_length(
     assert_series_equal(obs, exp, check_dtype=False, check_index_type=False)
 
 
-def test_get_words_of_length_exception() -> None:
-    """Test that _get_words_of_length raises exception if no min or max length is specified."""
+def test_select_words_of_length_exception() -> None:
+    """Test that _select_words_of_length raises exception if no min or max length is specified."""
 
     word_pool_creator = WordPool()
     with pytest.raises(ValueError):
-        word_pool_creator.get_words_of_length()
+        word_pool_creator.select_words_of_length()
