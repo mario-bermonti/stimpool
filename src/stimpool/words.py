@@ -9,7 +9,7 @@ import pandas as pd
 ROOT_DIR = Path().resolve()
 
 
-class WordPoolCreator(object):
+class WordPool(object):
     """Create word pools."""
 
     def __init__(self, pool: Optional[Iterable[str]] = None) -> None:
