@@ -82,8 +82,6 @@ def test_get_words_meeting_criteria(words: List[str], exp: pd.Series, how: str) 
     )
 
     obs = obs.reset_index(drop=True)
-    exp = exp.reset_index(drop=True)
-    assert_series_equal(obs, exp, check_dtype=False, check_index_type=False)
     assert obs.equals(exp)
 
 
@@ -201,3 +199,40 @@ def test_remove_conjugation_suffix_from_word(word: str, exp: str) -> None:
     obs = word_pool_creator._remove_conjugation_suffix_from_word(word)
 
     assert obs == exp
+
+
+@pytest.mark.parametrize(
+    ("words", "exp"),
+    [
+        # none
+        (["accidentalmente", "úsenos", "óigame"], ["accidentalmente", "úsenos", "óigame"]),
+        # all
+        (
+            ["accidentar/RED", "accidentario/GS", "accidente/S"],
+            ["accidentar", "accidentario", "accidente"],
+        ),
+        # mixed
+        (
+            [
+                "accidentalmente",
+                "úsenos",
+                "óigame",
+                "accidentar/RED",
+                "accidentario/GS",
+                "accidente/S",
+            ],
+            ["accidentalmente", "úsenos", "óigame", "accidentar", "accidentario", "accidente"],
+        ),
+    ],
+)
+def test_clean_conjugation_suffixes(words: List[str], exp: List[Optional[str]]) -> None:
+    """Test the _clean_conjugation_suffixes with different cases."""
+
+    exp: pd.Series = pd.Series(exp)  # type: ignore
+    exp = exp.reset_index(drop=True)  # type: ignore
+    word_pool_creator = WordPool(words)
+    words = pd.Series(words)
+    obs = word_pool_creator._clean_conjugation_suffixes(words)
+    obs = obs.reset_index(drop=True)
+
+    assert obs.equals(exp)
