@@ -180,3 +180,24 @@ def test_select_words_of_length_exception() -> None:
     word_pool_creator = WordPool()
     with pytest.raises(ValueError):
         word_pool_creator.select_words_of_length()
+
+
+@pytest.mark.parametrize(
+    ("word", "exp"),
+    [
+        # with
+        ("acantio/S", "acantio"),
+        ("acantonamiento/hS", "acantonamiento"),
+        ("acantarar/RED", "acantarar"),
+        # without
+        ("acaso", "acaso"),
+        ("accidentalmente", "accidentalmente"),
+    ],
+)
+def test_remove_conjugation_suffix_from_word(word: str, exp: str) -> None:
+    """Test the _remove_conjugation_suffix_from_word with different cases."""
+
+    word_pool_creator = WordPool(word)
+    obs = word_pool_creator._remove_conjugation_suffix_from_word(word)
+
+    assert obs == exp
