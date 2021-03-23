@@ -198,6 +198,15 @@ class WordPool(object):
         else:
             return False
 
+    def _remove_conjugation_suffix_from_word(self, word: str) -> str:
+        """Remove suffix that indicates how to conjugate the word."""
+
+        if "/" in word:
+            word_elements = word.split("/")
+            word = word_elements[0]
+
+        return word
+
     def _get_words_meeting_criteria(
         self, func_checks_criteria: Callable, how: str = "keep", **kwargs: Optional[Any]
     ) -> pd.Series:
