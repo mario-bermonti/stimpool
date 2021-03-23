@@ -198,6 +198,13 @@ class WordPool(object):
         else:
             return False
 
+    def _clean_conjugation_suffixes(self, pool: pd.Series) -> pd.Series:
+        """Clean suffix that indicates how to conjugate the words."""
+
+        pool_clean: pd.Series = pool.apply(self._remove_conjugation_suffix_from_word)
+
+        return pool_clean
+
     def _remove_conjugation_suffix_from_word(self, word: str) -> str:
         """Remove suffix that indicates how to conjugate the word."""
 
