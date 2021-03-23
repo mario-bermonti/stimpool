@@ -12,7 +12,9 @@ ROOT_DIR = Path().resolve()
 class WordPool(object):
     """Create word pools."""
 
-    def __init__(self, pool: Optional[Iterable[str]] = None) -> None:
+    def __init__(
+        self, pool: Optional[Iterable] = None, clean_conjugation_suffix: bool = True
+    ) -> None:
         """Create a word pool.
 
         Parameters
@@ -20,9 +22,14 @@ class WordPool(object):
         pool : Iterable
             Word pool that will be used to create subpool (the default
             is None, use default word pool)
+        clean_conjugation_suffix : bool
+            Specifies if suffixes that are used to identify word conjugations
+            should be removed from the pool (Default=True)
         """
 
-        self._pool_original, self._pool_cleaned = self._prepare_pool(pool)
+        self._pool_original, self._pool_cleaned = self._prepare_pool(
+            pool, clean_conjugation_suffix
+        )
 
     def _prepare_pool(
         self, pool: Optional[Iterable[str]], clean_conjugation_suffix: bool
