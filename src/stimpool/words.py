@@ -12,7 +12,9 @@ ROOT_DIR = Path().resolve()
 class WordPool(object):
     """Create word pools."""
 
-    def __init__(self, pool: Optional[Iterable[str]] = None) -> None:
+    def __init__(
+        self, pool: Optional[Iterable] = None, clean_conjugation_suffix: bool = True
+    ) -> None:
         """Create a word pool.
 
         Parameters
@@ -20,17 +22,27 @@ class WordPool(object):
         pool : Iterable
             Word pool that will be used to create subpool (the default
             is None, use default word pool)
+        clean_conjugation_suffix : bool
+            Specifies if suffixes that are used to identify word conjugations
+            should be removed from the pool (Default=True)
         """
 
-        self._pool_original, self._pool_cleaned = self._prepare_pool(pool)
+        self._pool_original, self._pool_cleaned = self._prepare_pool(
+            pool, clean_conjugation_suffix
+        )
 
-    def _prepare_pool(self, pool: Optional[Iterable[str]]) -> Tuple[pd.Series, pd.Series]:
+    def _prepare_pool(
+        self, pool: Optional[Iterable[str]], clean_conjugation_suffix: bool
+    ) -> Tuple[pd.Series, pd.Series]:
         """Prepare word pool to be used.
 
         Parameters
         ----------
         pool : Iterable
             Word pool that will be used to create subpool.
+        clean_conjugation_suffix : bool
+            Specifies if suffixes that are used to identify word conjugations
+            should be removed from the pool (Default=True)
 
         Returns
         -------
@@ -49,9 +61,10 @@ class WordPool(object):
         pool_original: pd.Series[str] = pool_formatted.copy()
         pool_cleaned: pd.Series[str] = pool_formatted.copy()
 
-        # if clean_conjugation_suffix:
-        #     pool_cleaned: pd.Series = self._clean_conjugation_suffix(pool_cleaned)
-        # type: ignore
+        if clean_conjugation_suffix:
+            pool_cleaned: pd.Series = self._clean_conjugation_suffixes(  # type: ignore
+                pool_cleaned
+            )
 
         return pool_original, pool_cleaned
 
@@ -197,6 +210,22 @@ class WordPool(object):
             return True
         else:
             return False
+
+    def _clean_conjugation_suffixes(self, pool: pd.Series) -> pd.Series:
+        """Clean suffix that indicates how to conjugate the words."""
+
+        pool_clean: pd.Series = pool.apply(self._remove_conjugation_suffix_from_word)
+
+        return pool_clean
+
+    def _remove_conjugation_suffix_from_word(self, word: str) -> str:
+        """Remove suffix that indicates how to conjugate the word."""
+
+        if "/" in word:
+            word_elements = word.split("/")
+            word = word_elements[0]
+
+        return word
 
     def _get_words_meeting_criteria(
         self, func_checks_criteria: Callable, how: str = "keep", **kwargs: Optional[Any]
