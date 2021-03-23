@@ -180,3 +180,14 @@ def test_select_words_of_length_exception() -> None:
     word_pool_creator = WordPool()
     with pytest.raises(ValueError):
         word_pool_creator.select_words_of_length()
+
+
+@pytest.mark.parametrize("words", [["al", "gato", "cabeza", "periódico", "ratón"]])
+def test_sample_pool_is_reproducible(words: List[str]) -> None:
+    """Test that sample_pool is reproducible."""
+
+    word_pool = WordPool(words)
+    obs1 = word_pool.sample_pool(n=3)
+    obs2 = word_pool.sample_pool(n=3)
+
+    assert_series_equal(obs1, obs2)
