@@ -24,13 +24,18 @@ class WordPool(object):
 
         self._pool_original, self._pool_cleaned = self._prepare_pool(pool)
 
-    def _prepare_pool(self, pool: Optional[Iterable[str]]) -> Tuple[pd.Series, pd.Series]:
+    def _prepare_pool(
+        self, pool: Optional[Iterable[str]], clean_conjugation_suffix: bool
+    ) -> Tuple[pd.Series, pd.Series]:
         """Prepare word pool to be used.
 
         Parameters
         ----------
         pool : Iterable
             Word pool that will be used to create subpool.
+        clean_conjugation_suffix : bool
+            Specifies if suffixes that are used to identify word conjugations
+            should be removed from the pool (Default=True)
 
         Returns
         -------
@@ -49,9 +54,10 @@ class WordPool(object):
         pool_original: pd.Series[str] = pool_formatted.copy()
         pool_cleaned: pd.Series[str] = pool_formatted.copy()
 
-        # if clean_conjugation_suffix:
-        #     pool_cleaned: pd.Series = self._clean_conjugation_suffix(pool_cleaned)
-        # type: ignore
+        if clean_conjugation_suffix:
+            pool_cleaned: pd.Series = self._clean_conjugation_suffixes(  # type: ignore
+                pool_cleaned
+            )
 
         return pool_original, pool_cleaned
 
