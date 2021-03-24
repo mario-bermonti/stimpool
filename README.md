@@ -25,6 +25,7 @@ Easily create stimuli pools for cognitive, learning, and psycholinguistics resea
 * Easily create Spanish word pools for research
 * Specify the characteristics that meet your needs
 * Provide your own word pool or use the default one
+* Get the cleaned pool or save it to a file
 
 ## Getting Started
 ### Installation
