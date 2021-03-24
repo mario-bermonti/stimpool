@@ -281,6 +281,24 @@ class WordPool(object):
 
         return sample
 
+    def save_pool(self, filename: str = "word pool") -> None:
+        """Save the word pool to a csv file.
+
+        This is just a helper function that uses pandas.Series.to_csv.
+        You can read its [complete documentation]
+        (https://pandas.pydata.org/pandas-docs/version/0.23.4/generated/pandas.Series.to_csv.html)
+
+        Parameters
+        ----------
+        filename : str
+            Name of the file without the extension (i.e., csv). (Default=word pool)
+        """
+
+        path = f"{filename}.csv"
+        self._pool_cleaned.name = "words"
+
+        self._pool_cleaned.to_csv(path, index=False)
+
     @property
     def words(self) -> pd.Series:
         """Return the clean word pool."""
