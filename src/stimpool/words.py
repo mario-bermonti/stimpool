@@ -261,6 +261,10 @@ class WordPool(object):
     def sample_pool(self, n: int, reproducible: bool = True) -> pd.Series:
         """Return a sample from the word pool.
 
+       This is just a helper function that uses pandas.Series.sample. 
+       You can read its 
+       [complete documentation] (https://pandas.pydata.org/docs/reference/api/pandas.Series.sample.html)
+
         Parameters
         ----------
         n : int
