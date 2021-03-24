@@ -261,28 +261,6 @@ class WordPool(object):
     def sample_pool(self, n: int, reproducible: bool = True) -> pd.Series:
         """Return a sample from the word pool.
 
-        Parameters
-        ----------
-        n : int
-            sample size
-        reproducible : bool
-            Specifies whether the sample obtained should be reproducible. This is important to
-            guarantee the reproducibility of research (Default=True)
-
-        Returns
-        -------
-        sample
-            pool sample of specified size
-        """
-
-        reproducible_coded: Optional[int] = 1 if True else None
-
-        sample = self._pool_cleaned.sample(n=n, random_state=reproducible_coded)
-
-        return sample
-
-    @property
-    def words(self) -> pd.Series:
-        """Return the clean word pool."""
-
-        return self._pool_cleaned
+        This is just a helper function that uses pandas.Series.sample. 
+        You can read its 
+        [complete documentation] (https://pandas.pydata.org/docs/reference/api/pandas.Series.sample.html)
