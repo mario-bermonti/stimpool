@@ -1,6 +1,10 @@
-
 name: "Test docs build"
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
 jobs:
   docs:
     runs-on: ubuntu-latest
