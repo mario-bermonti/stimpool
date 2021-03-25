@@ -15,12 +15,10 @@ jobs:
       - name: Install system deps
         shell: bash
         run: |
-          pip install poetry
-          poetry config virtualenvs.in-project true
-          poetry install
+          pip install .
 
       - name: Build docs
         uses: ammaraskar/sphinx-action@master
         with:
           docs-folder: "docs/"
-          build-command: "poetry run sphinx-build -b html . _build"
+          build-command: "sphinx-build -b html . _build"
