@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
-      
+
       - name: Set up Python 3.6
         uses: actions/setup-python@v2.2.1
         with:
           python-version: 3.6
-      
+
       - name: Install system deps
         shell: bash
         run: |
@@ -67,5 +67,5 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: ${{ steps.changelog_reader.outputs.changes }}
-          draft: false
+          draft: true
           prerelease: false
