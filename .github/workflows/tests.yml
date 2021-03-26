@@ -7,7 +7,6 @@ on:
     branches:
 jobs:
   tests:
-    needs: linting
     name: ${{ matrix.os }} / ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}-latest
     strategy:
