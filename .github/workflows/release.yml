@@ -20,7 +20,12 @@ jobs:
         run: |
           pip install poetry
           poetry config virtualenvs.in-project true
+          pip install nox
 
+      - name: Run tests
+        shell: bash
+        run: nox
+         
       - name: Build package
         run: |
           poetry build --ansi
