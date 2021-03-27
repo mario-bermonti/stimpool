@@ -31,17 +31,15 @@ jobs:
         shell: bash
         run: nox --force-color -s tests
 
-      - name: Get version from tag
-        id: tag_name
-        shell: bash
-        run: |
-          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
+      - name: Get previous version from latest tag
+        id: latest_tag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1.0.1"
 
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.0.0
         with:
-          version: ${{ steps.tag_name.outputs.current_version }}
+          version: ${{ steps.latest_tag.outputs.tag }}
           path: ./CHANGELOG.md
 
       - name: Create Release
