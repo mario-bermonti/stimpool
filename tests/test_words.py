@@ -4,7 +4,6 @@ from typing import List, Optional
 
 import pandas as pd
 import pytest
-from pandas.testing import assert_series_equal
 
 from stimpool.words import WordPool
 
@@ -169,7 +168,7 @@ def test_select_words_of_length(
 
     obs = obs.reset_index(drop=True)
     exp = exp.reset_index(drop=True)
-    assert_series_equal(obs, exp, check_dtype=False, check_index_type=False)
+    obs.equals(exp)
 
 
 def test_select_words_of_length_exception() -> None:
@@ -246,4 +245,4 @@ def test_sample_pool_is_reproducible(words: List[str]) -> None:
     obs1 = word_pool.sample_pool(n=3)
     obs2 = word_pool.sample_pool(n=3)
 
-    assert_series_equal(obs1, obs2)
+    obs1.equals(obs2)
