@@ -278,7 +278,7 @@ class WordPool(object):
 
         Returns
         -------
-        sample
+        pd.Series
             pool sample of specified size
         """
 
