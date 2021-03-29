@@ -66,6 +66,9 @@ class WordPool(object):
                 pool_cleaned
             )
 
+        pool_original.name = "words_original"
+        pool_cleaned.name = "words"
+
         return pool_original, pool_cleaned
 
     def _get_default_pool(self) -> pd.Series:
@@ -73,7 +76,6 @@ class WordPool(object):
 
         path = ROOT_DIR / "src" / "stimpool" / "words" / "es_PR.dic"
         pool = pd.read_csv(path, squeeze=True)
-        pool.name = "original pool"
 
         return pool
 
