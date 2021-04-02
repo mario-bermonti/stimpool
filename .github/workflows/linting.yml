@@ -17,7 +17,18 @@ jobs:
         with:
           python-version: 3.6
 
-      - name: Linting
+      - name: Install system deps
+        shell: bash
+        run: |
+          pip install nox
+          pip install poetry
+          poetry config virtualenvs.in-project true
+
+      - name: Run mypy with nox
+        shell: bash
+        run: nox --force-color -s mypy-${{ matrix.python-version }}
+
+      - name: Run pre-commit hooks
         run: |
           pip install pre-commit
           pre-commit run --all-files
