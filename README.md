@@ -66,4 +66,4 @@ This package was created with [Cookiecutter][cookiecutter] and the [fedejaure/co
 [cookiecutter]: https://github.com/cookiecutter/cookiecutter
 [cookiecutter-modern-pypackage]: https://github.com/fedejaure/cookiecutter-modern-pypackage
 [project_docs]: https://stimpool.readthedocs.io/en/latest/
-[code_conduct]: ./CODE_OF_CONDUCT.md
+[code_conduct]: docs/CODE_OF_CONDUCT.md
