@@ -42,6 +42,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx_autodoc_typehints",  # insert typehints into the final docs
     "sphinx_rtd_theme",
+    "m2r",  # include md files
 ]
 
 # default for autodoc
