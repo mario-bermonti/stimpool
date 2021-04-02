@@ -1,4 +1,4 @@
-name: "Test docs build"
+name: "Docs"
 on:
   push:
     branches:
