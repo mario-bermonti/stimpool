@@ -8,6 +8,7 @@ Welcome to stimpool's documentation!
    installation
    stimpool
    changelog
+   Code of Conduct <CODE_OF_CONDUCT>
 
 Indices and tables
 ==================
