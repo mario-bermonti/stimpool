@@ -52,6 +52,7 @@ autodoc_member_order = "bysource"
 #     'undoc-members': 'code,error_template',
 #     'exclude-members': '__dict__,__weakref__',
 # }
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
