@@ -51,6 +51,9 @@ Check [the documentation][project_docs] for more details.
   and submit a pull request. Be sure to run the tests or provided a test-case
   if adding new functionality.
 
+  Please review the [project's code of conduct][code_conduct] before making
+  any contributions.
+
 ## Author
   This project was developed by Mario E. Bermonti-Pérez as part of
   his academic research. Feel free to contact me at
@@ -63,3 +66,4 @@ This package was created with [Cookiecutter][cookiecutter] and the [fedejaure/co
 [cookiecutter]: https://github.com/cookiecutter/cookiecutter
 [cookiecutter-modern-pypackage]: https://github.com/fedejaure/cookiecutter-modern-pypackage
 [project_docs]: https://stimpool.readthedocs.io/en/latest/
+[code_conduct]: ./CODE_OF_CONDUCT.md
