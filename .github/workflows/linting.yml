@@ -26,7 +26,7 @@ jobs:
 
       - name: Run mypy with nox
         shell: bash
-        run: nox --force-color -s mypy-${{ matrix.python-version }}
+        run: nox --force-color -s mypy
 
       - name: Run pre-commit hooks
         run: |
