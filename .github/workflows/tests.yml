@@ -29,10 +29,6 @@ jobs:
           pip install poetry
           poetry config virtualenvs.in-project true
 
-      - name: Run mypy with nox
-        shell: bash
-        run: nox --force-color -s mypy-${{ matrix.python-version }}
-
       - name: Run tests with nox
         shell: bash
         run: nox --force-color -s tests-${{ matrix.python-version }}
