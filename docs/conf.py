@@ -48,11 +48,6 @@ extensions = [
 # default for autodoc
 autoclass_content = "class"
 autodoc_member_order = "bysource"
-# autodoc_default_flags = {
-#     'members': '',
-#     'undoc-members': 'code,error_template',
-#     'exclude-members': '__dict__,__weakref__',
-# }
 
 # autodocsumm config
 autodoc_default_options = {"autosummary": True}
