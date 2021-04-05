@@ -42,6 +42,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx_autodoc_typehints",  # insert typehints into the final docs
     "sphinx_rtd_theme",
+    "autodocsumm",  # generate summary of class attributes
 ]
 
 # default for autodoc
