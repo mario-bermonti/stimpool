@@ -42,16 +42,15 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx_autodoc_typehints",  # insert typehints into the final docs
     "sphinx_rtd_theme",
+    "autodocsumm",  # generate summary of class attributes
 ]
 
 # default for autodoc
 autoclass_content = "class"
 autodoc_member_order = "bysource"
-# autodoc_default_flags = {
-#     'members': '',
-#     'undoc-members': 'code,error_template',
-#     'exclude-members': '__dict__,__weakref__',
-# }
+
+# autodocsumm config
+autodoc_default_options = {"autosummary": True}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
