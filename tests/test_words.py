@@ -123,7 +123,12 @@ def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> 
         ),
         # only min
         # some meet criteria
-        (["al", "gato", "cabeza", "periódico"], 6, None, pd.Series(["cabeza", "periódico"])),
+        (
+            ["al", "gato", "cabeza", "periódico"],
+            6,
+            None,
+            pd.Series(["cabeza", "periódico"]),
+        ),
         # only min
         # none meet criteria
         (["al", "gato", "cabeza", "periódico"], 15, None, pd.Series([])),
@@ -172,7 +177,10 @@ def test_select_words_of_length(
 
 
 def test_select_words_of_length_exception() -> None:
-    """Test that _select_words_of_length raises exception if no min or max length is specified."""
+    """Test that _select_words_of_length raises exception when appropriate.
+
+    It is appropriate to raise an exception if no min or max length is specified.
+    """
 
     word_pool = WordPool()
     with pytest.raises(ValueError):
@@ -204,7 +212,10 @@ def test_remove_conjugation_suffix_from_word(word: str, exp: str) -> None:
     ("words", "exp"),
     [
         # none
-        (["accidentalmente", "úsenos", "óigame"], ["accidentalmente", "úsenos", "óigame"]),
+        (
+            ["accidentalmente", "úsenos", "óigame"],
+            ["accidentalmente", "úsenos", "óigame"],
+        ),
         # all
         (
             ["accidentar/RED", "accidentario/GS", "accidente/S"],
@@ -220,7 +231,14 @@ def test_remove_conjugation_suffix_from_word(word: str, exp: str) -> None:
                 "accidentario/GS",
                 "accidente/S",
             ],
-            ["accidentalmente", "úsenos", "óigame", "accidentar", "accidentario", "accidente"],
+            [
+                "accidentalmente",
+                "úsenos",
+                "óigame",
+                "accidentar",
+                "accidentario",
+                "accidente",
+            ],
         ),
     ],
 )
