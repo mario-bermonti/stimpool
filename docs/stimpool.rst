@@ -4,7 +4,7 @@ stimpool functionality
 Word pools (stimpool.words)
 ---------------------------
 
-.. automodule:: stimpool.words
+.. autoclass:: stimpool.words.WordPool
    :members:
    :undoc-members:
 
