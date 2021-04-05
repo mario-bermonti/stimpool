@@ -54,6 +54,9 @@ autodoc_member_order = "bysource"
 #     'exclude-members': '__dict__,__weakref__',
 # }
 
+# autodocsumm config
+autodoc_default_options = {"autosummary": True}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
