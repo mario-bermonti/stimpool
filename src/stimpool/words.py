@@ -183,7 +183,9 @@ class WordPool(object):
 
         self._pool_cleaned = pool_cleaned
 
-    def _check_word_length(self, word: str, min_len: int = None, max_len: int = None) -> bool:
+    def _check_word_length(
+        self, word: str, min_len: int = None, max_len: int = None
+    ) -> bool:
         """Check that the length of the word meets the established limits.
 
         Parameters
@@ -250,9 +252,13 @@ class WordPool(object):
             Words that met the criteria.
         """
 
-        pool_meeting_criteria_flags = self._pool_cleaned.apply(func_checks_criteria, **kwargs)
+        pool_meeting_criteria_flags = self._pool_cleaned.apply(
+            func_checks_criteria, **kwargs
+        )
         if how == "keep":
-            pool_meeting_criteria = self._pool_cleaned.where(pool_meeting_criteria_flags)
+            pool_meeting_criteria = self._pool_cleaned.where(
+                pool_meeting_criteria_flags
+            )
         elif how == "remove":
             pool_meeting_criteria = self._pool_cleaned.mask(pool_meeting_criteria_flags)
 
@@ -273,8 +279,9 @@ class WordPool(object):
             sample size
 
         reproducible : bool
-            Specifies whether the sample obtained should be reproducible. This is important to
-            guarantee the reproducibility of research (Default=True)
+            Specifies whether the sample obtained should be reproducible.
+            This is important to guarantee the reproducibility of
+            research (Default=True)
 
         Returns
         -------

@@ -61,7 +61,11 @@ def tests(session: Session) -> None:
 @nox.session
 def coverage(session: Session) -> None:
     """Produce the coverage report."""
-    args = session.posargs if session.posargs and len(session._runner.manifest) == 1 else []
+    args = (
+        session.posargs
+        if session.posargs and len(session._runner.manifest) == 1
+        else []
+    )
     install_with_constraints(session, "invoke", "coverage[toml]")
     session.run("inv", "coverage", *args)
 
