@@ -6,7 +6,7 @@ Welcome to stimpool's documentation!
 
    readme
    installation
-   stimpool
+   Word Pool <words>
    changelog
    Code of conduct <CODE_OF_CONDUCT.md>
 
