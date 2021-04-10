@@ -1,9 +1,29 @@
-stimpool functionality
-======================
+stimpool package
+================
 
-Word pools (stimpool.words)
----------------------------
+Submodules
+----------
 
-.. autoclass:: stimpool.words.WordPool
+stimpool.cli module
+-------------------
+
+.. automodule:: stimpool.cli
    :members:
    :undoc-members:
+   :show-inheritance:
+
+stimpool.words module
+---------------------
+
+.. automodule:: stimpool.words
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: stimpool
+   :members:
+   :undoc-members:
+   :show-inheritance:
