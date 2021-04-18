@@ -40,3 +40,9 @@ python --version
  ## 📎 Additional context
 
 <!-- Add any other context about the problem here. -->
+
+
+
+<!-- Credits -->
+<!-- This template is based on TezRomacH template
+https://github.com/TezRomacH/python-package-template/blob/master/%7B%7B%20cookiecutter.project_name%20%7D%7D/.github/ISSUE_TEMPLATE/bug_report.md -->
