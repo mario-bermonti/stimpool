@@ -108,6 +108,7 @@ show_source = true
 docstring_style = "numpy"
 strictness = "short"
 exclude = ["noxfile.py"]
+extended_default_ignore = []  # added to temporarily fix flakehell issue
 
 [tool.flakehell.plugins]
 pyflakes = ["+*"]
