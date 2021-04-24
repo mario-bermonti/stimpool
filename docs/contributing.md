@@ -86,13 +86,28 @@ You will need [Python 3.6+][download_python] installed.
 
 5. Make sure everything is working properly before making any changes by running `poetry run invoke dev-tasks`.
 
+### Development tasks (important side note)
+In order to run anything inside the virtual environment every command has to be prefixed with `poetry run <command>`.
 
-3.  Ensure [poetry is installed](https://python-poetry.org/docs/).
-4.  Install dependencies and start your virtualenv:
+For example, to run python inside the virtual environment you would run `poetry run python`.
 
-        $ poetry install
+We have most of our development tasks pre-configured to run automatically with invoke.  :grin:
 
-5.  Create a branch for local development:
+The most important tasks are:
+
+| Command       | Description                               |
+|---------------|-------------------------------------------|
+| dev-tasks     | Run all development tasks.                |
+| format        | Format code.                              |
+| tests         | Run tests.                                |
+| coverage      | Create coverage report.                   |
+| lint          | Run all linting.                          |
+| mypy          | Run mypy.                                 |
+| docs          | Build documentation.                      |
+| clean         | Run all clean sub-tasks.                  |
+
+You can find see all the development tasks that pre-configured by running `poetry run invoke --list`.
+
 
         $ git checkout -b name-of-your-bugfix-or-feature
 
