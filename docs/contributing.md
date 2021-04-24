@@ -7,7 +7,7 @@ project and helps its users.
 
 The following sections detail a variety of ways to contribute and how to get started.
 
-Credit will always be given to the people making contributions.
+Credit will always be given to the people making contributions. :wink:
 
 If you do decide to work on an issue, please indicate so in a comment to the issue
 so it's assigned to you and other people don't work on it simultaneously.
@@ -16,9 +16,12 @@ Don't hesitate to write a comment in the issue you are interested in
 if you have questions, would like to discuss some issue further, or you need help.
 
 
-# Types of Contributions
+## Types of Contributions
 
-## Submit Feedback
+### Spread the word
+Tell others about your experience with stimpool. You can share it on social media and follow it on GitHub.
+
+### Submit Feedback
 
 The best way to send feedback is to file an issue at
  <https://github.com/mario-bermonti/stimpool/issues>.
@@ -33,27 +36,27 @@ If you are proposing a feature:
 - Remember that this is a volunteer-driven project and for this reason it may not be feasible
   to implement the feature or it may take some time.
 
-## Write Documentation
+### Write Documentation
 
 stimpool could always use more documentation. You can contribute to the documentation
 by:
 - Fixing typographical, grammatical, or spelling errors.
 - Improving documentation that is unclear or incorrect.
 - Creating or improving examples and tutorials.
-- Writing blog posts, articles, and similar content.
+- Writing blog posts, articles, and similar content that share how you are using this project and your best practices with us.
 
-## Report Bugs
+### Report Bugs
   You can report bugs at <https://github.com/mario-bermonti/stimpool/issues>.
 
   Please provide all the details that are asked when you create the issue to make sure
   it is understood correctly.
 
-## Fix existing bugs
+### Fix existing bugs
 
   Look through the GitHub issues for bugs. Anything tagged with \"bug\"
   and \"help wanted\" is open to whoever wants to implement it.
 
-## Implement Features
+### Implement Features
 
 Look through the GitHub issues for features. Anything tagged with
 \"enhancement\" and \"help wanted\" is open to whoever wants to
