@@ -108,6 +108,28 @@ The most important tasks are:
 
 You can find see all the development tasks that pre-configured by running `poetry run invoke --list`.
 
+### Making changes
+
+#### Workflow
+
+We work by protecting `master` branch and only merging changes that don't break existing functionality and are tested.
+
+How do we do it?:
+
+1. We identify something that must change
+2. We create an issue on GitHub, if it doesn't already exist
+3. We create a new branch named after the issue we want "fix" (`issue-$TASKNUMBER`)
+4. We make changes and test everything works
+5. Style the code
+6. We then create a pull request to `master` branch that is reviewed and if approved, it is merged
+   into `master`
+
+This way we achieve an easy and scalable development process that avoids merge
+conflicts and long-living branches.
+
+In this method, the `master` branch always has the latest version of the software, is stable,
+and is working.
+
 
         $ git checkout -b name-of-your-bugfix-or-feature
 
