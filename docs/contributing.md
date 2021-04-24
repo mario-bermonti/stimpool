@@ -62,15 +62,30 @@ Look through the GitHub issues for features. Anything tagged with
 \"enhancement\" and \"help wanted\" is open to whoever wants to
 implement it.
 
-# Get Started!
+## Start contributing!
+
+### Set up the development environment
 
 Ready to contribute? Here\'s how to set up
-stimpool for local development.
+stimpool in your local development environment.
 
-1.  Fork the stimpool repo on GitHub.
+You will need [Python 3.6+][download_python] installed.
+
+1.  Fork the [stimpool repo][stimpool_gh] on GitHub.
 2.  Clone your fork locally:
 
-        $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+        git clone git@github.com:your_name_here/stimpool.git
+
+3. We use `poetry` to manage dependencies. Install it with the following command.
+
+        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
+4.  Install the project, its dependencies, and the virtualenv:
+
+         poetry install
+
+5. Make sure everything is working properly before making any changes by running `poetry run invoke dev-tasks`.
+
 
 3.  Ensure [poetry is installed](https://python-poetry.org/docs/).
 4.  Install dependencies and start your virtualenv:
