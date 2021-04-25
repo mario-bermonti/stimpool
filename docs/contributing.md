@@ -178,7 +178,8 @@ important details about making changes.
 
     - Make a reference to the relevant GitHub issues in your commit message (e.g., `Fix #1234`)
       We use imperative mood for commit messages (`fix x`, instead of `fixed x`).
-      See [this commit guide][commit_guide]
+      See [this commit guide][commit_guide]. A tip is to use a title for your commit message
+      that completes "This commit will..." [Fix issue X].
     - The subject line should have < 80 chars
     - Leave one line blank
     - [Optional] Explain any relevant details or decisions made
