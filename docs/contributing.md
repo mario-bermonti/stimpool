@@ -190,19 +190,14 @@ important details about making changes.
 
 9.  Submit a pull request through GitHub (see the `Pull Request Guidelines` section).
 
-# Pull Request Guidelines
+#### Pull Request Guidelines
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1.  The pull request should include tests.
+1.  The pull request should include tests for new functionality.
 2.  If the pull request adds functionality, the docs should be updated.
-    Put your new functionality into a function with a docstring, and add
-    the feature to the list in README.rst.
-3.  The pull request should work for Python 3.5, 3.6, 3.7 and 3.8, and
-    for PyPy. Check <https://travis-ci.com/>{{
-    cookiecutter.github\_username }}/{{ cookiecutter.project\_slug
-    }}/pull\_requests and make sure that the tests pass for all
-    supported Python versions.
+3.  The pull request should pass all tests and must work for all the supported Python versions. It
+    must also pass all checks in the GitHub CI.
 
 # Tips
 
