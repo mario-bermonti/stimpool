@@ -234,3 +234,7 @@ GitHub create a new GitHub Release and deploy to PyPI if tests pass.
 <!-- https://github.com/cjolowicz/cookiecutter-hypermodern-python/blob/main/%7B%7Bcookiecutter.project_name%7D%7D/CONTRIBUTING.rst -->
 <!-- https://github.com/wemake-services/wemake-python-package/blob/master/%7B%7Bcookiecutter.project_name%7D%7D/CONTRIBUTING.md -->
 <!-- https://github.com/pandas-dev/pandas/blob/master/doc/source/development/contributing.rst#committing-your-code -->
+
+[download_python]: https://www.python.org/downloads/
+[stimpool_gh]: https://github.com/mario-bermonti/stimpool
+[commit_guide]: https://chris.beams.io/posts/git-commit/
