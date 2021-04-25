@@ -214,22 +214,17 @@ improve the probability that your changes are accepted.
 - It is recommended to open an issue before starting work on anything. This will allow a chance to
   talk it over with the maintainers and validate your approach.
 
+## Deploying
 
-:   \$ python -m unittest [tests.test]()stimpool
+A reminder for maintainers about how to deploy.
 
-{%- endif %}
-
-# Deploying
-
-A reminder for the maintainers on how to deploy. Make sure all your
-changes are committed (including an entry in HISTORY.rst). Then run:
+Make sure all your changes are committed and the entry in the `Changelog.md` is updated. Then run:
 
     $ bump2version patch # possible: major / minor / patch
     $ git push
     $ git push --tags
 
-Travis will then deploy to PyPI if tests pass.
-
+GitHub create a new GitHub Release and deploy to PyPI if tests pass.
 
 
 <!-- Credits -->
