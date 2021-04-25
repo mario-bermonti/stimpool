@@ -95,16 +95,18 @@ We have most of our development tasks pre-configured to run automatically with i
 
 The most important tasks are:
 
-| Command       | Description                               |
-|---------------|-------------------------------------------|
-| dev-tasks     | Run all development tasks.                |
-| format        | Format code.                              |
-| tests         | Run tests.                                |
-| coverage      | Create coverage report.                   |
-| lint          | Run all linting.                          |
-| mypy          | Run mypy.                                 |
-| docs          | Build documentation.                      |
-| clean         | Run all clean sub-tasks.                  |
+| Command   | Description                |
+|-----------|----------------------------|
+| dev-tasks | Run all development tasks. |
+| format    | Format code.               |
+| tests     | Run tests.                 |
+| coverage  | Create coverage report.    |
+| lint      | Run all linting.           |
+| mypy      | Run mypy.                  |
+| docs      | Build documentation.       |
+| clean     | Run all clean sub-tasks.   |
+
+
 
 You can find see all the development tasks that pre-configured by running `poetry run invoke --list`.
 
