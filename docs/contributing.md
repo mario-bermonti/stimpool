@@ -177,6 +177,8 @@ important details about making changes.
     Stimpool follows specific guidelines for commit messages:
 
     - Make a reference to the relevant GitHub issues in your commit message (e.g., `Fix #1234`)
+      We use imperative mood for commit messages (`fix x`, instead of `fixed x`).
+      See [this commit guide][commit_guide]
     - The subject line should have < 80 chars
     - Leave one line blank
     - [Optional] Explain any relevant details or decisions made
