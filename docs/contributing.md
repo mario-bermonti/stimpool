@@ -130,23 +130,62 @@ conflicts and long-living branches.
 In this method, the `master` branch always has the latest working version of the software, is stable,
 and is working.
 
+#### How to make changes
+
+Follow this steps when working on changes to the project. Please see the `Workflow section` for
+important details about making changes.
+
+1.  Create a branch for local development. All the changes must be in this branch.
 
         $ git checkout -b name-of-your-bugfix-or-feature
 
-    Now you can make your changes locally.
+2. Run the all checks to make sure everything is working before making
+   any changes
 
-6.  When you\'re done making changes, check that your changes pass the
-    tests, including testing other Python versions, with tox:
+        $ poetry run invoke dev-tasks
 
-        $ tox
+3. Add any changes you want
+3. Add tests for the new changes
+4. Run the tests and make sure they all pass
+
+        $ poetry run invoke tests
+
+4. Edit the documentation if appropriate (this is required for new features)
+5. Make sure the changes to the documentation are correct and that the docs build
+
+        $ poetry run invoke docs
+
+6. Make sure everything is fine (e.g., tests, code style, coverage)
+
+        $ poetry run invoke dev-tasks
+
+   If you find that something is not working as expected, fix it, check that it is working appropriately
+   by running the appropriate invoke command (see `Development tasks section`).
+
+        $ poetry run invoke <command>
+
+   After it is fixed, run all development tasks again
+
+        $ poetry run invoke dev-tasks
 
 7.  Commit your changes and push your branch to GitHub:
 
         $ git add .
-        $ git commit -m "Your detailed description of your changes."
+
+        $ git commit
+
+    Stimpool follows specific guidelines for commit messages:
+
+    - Make a reference to the relevant GitHub issues in your commit message (e.g., `Fix #1234`)
+    - The subject line should have < 80 chars
+    - Leave one line blank
+    - [Optional] Explain any relevant details or decisions made
+
+8. Push your changes to GitHub
+
         $ git push origin name-of-your-bugfix-or-feature
 
-8.  Submit a pull request through the GitHub website.
+9.  Submit a pull request through GitHub (see the `Pull Request Guidelines` section).
 
 # Pull Request Guidelines
 
