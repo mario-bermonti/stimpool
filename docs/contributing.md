@@ -127,7 +127,7 @@ How do we do it?:
 This way we achieve an easy and scalable development process that avoids merge
 conflicts and long-living branches.
 
-In this method, the `master` branch always has the latest version of the software, is stable,
+In this method, the `master` branch always has the latest working version of the software, is stable,
 and is working.
 
 
