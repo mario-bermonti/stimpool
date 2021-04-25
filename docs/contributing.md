@@ -12,9 +12,9 @@ Credit will always be given to the people making contributions. :wink:
 If you do decide to work on an issue, please indicate so in a comment to the issue
 so it's assigned to you and other people don't work on it simultaneously.
 
-Don't hesitate to write a comment in the issue you are interested in
-if you have questions, would like to discuss some issue further, or you need help.
-
+This is a beginner-friendly project so don't hesitate to write a comment in the issue you are
+interested in if you have questions, would like to discuss some issue further, or you need help
+in any way.
 
 ## Types of Contributions
 
