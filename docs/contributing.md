@@ -199,15 +199,21 @@ Before you submit a pull request, check that it meets these guidelines:
 3.  The pull request should pass all tests and must work for all the supported Python versions. It
     must also pass all checks in the GitHub CI.
 
-# Tips
+Feel free to submit your pull request early so we can discuss it and iterate on the process.
 
-To run a subset of tests:
+### Tips
 
-    {% if cookiecutter.use_pytest == 'y' -%}
+We really value your contributions and want to integrate your changes. The following are tips to
+improve the probability that your changes are accepted.
 
-> \$ pytest [tests.test]()stimpool
+- Make sure they don't break existing functionality
+- Include tests for the changes you made
+- Commit often
+- Make small, easy to understand commits (i.e., atomic commits)
+- Keep your changes in the narrowest scope possible (e.g., create tutorial for using the `X object`)
+- It is recommended to open an issue before starting work on anything. This will allow a chance to
+  talk it over with the maintainers and validate your approach.
 
-{% else %}
 
 :   \$ python -m unittest [tests.test]()stimpool
 
