@@ -9,6 +9,7 @@ Welcome to stimpool's documentation!
    Word Pool <words>
    changelog
    Code of conduct <CODE_OF_CONDUCT.md>
+   contributing
 
 Indices and tables
 ==================
