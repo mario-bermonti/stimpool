@@ -45,11 +45,11 @@ Check [the documentation][project_docs] for more details.
 ## Contributing to this project
   All contributions are welcome!
 
-  If you encounter any bugs, please open an issue on GitHub.
+  Will find a detailed description of all the ways you can contribute to stimpool in
+  [the contributing guide][contributing_guide].
 
-  To contribute to this project, clone the repository, add your contribution,
-  and submit a pull request. Be sure to run the tests or provided a test-case
-  if adding new functionality.
+  This is a beginner-friendly project so don't hesitate to ask any questions or get in touch
+  with the project's maintainers.
 
   Please review the [project's code of conduct][code_conduct] before making
   any contributions.
@@ -67,3 +67,4 @@ This package was created with [Cookiecutter][cookiecutter] and the [fedejaure/co
 [cookiecutter-modern-pypackage]: https://github.com/fedejaure/cookiecutter-modern-pypackage
 [project_docs]: https://stimpool.readthedocs.io/en/latest/
 [code_conduct]: ./CODE_OF_CONDUCT.md
+[contributing_guide]: ./docs/contributing.md

@@ -39,6 +39,7 @@ extensions = [
     "sphinx.ext.autosummary",  # summary table
     "sphinx.ext.napoleon",  # write docstrings in numpy or google
     "recommonmark",
+    "sphinx_markdown_tables",
     "sphinx.ext.coverage",
     "sphinx_autodoc_typehints",  # insert typehints into the final docs
     "sphinx_rtd_theme",
