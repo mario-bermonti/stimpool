@@ -26,3 +26,8 @@ template: |
   ## :busts_in_silhouette: List of contributors
 
   $CONTRIBUTORS
+
+
+# Credits
+# This template is taken almost completely from
+# https://github.com/TezRomacH/python-package-template/blob/master/%7B%7B%20cookiecutter.project_name%20%7D%7D/.github/release-drafter.yml
