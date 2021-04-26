@@ -27,6 +27,17 @@ template: |
 
   $CONTRIBUTORS
 
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
 
 # Credits
 # This template is taken almost completely from
