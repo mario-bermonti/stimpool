@@ -6,7 +6,7 @@ from typing import Any, Callable, Iterable, Optional, Tuple
 
 import pandas as pd
 
-ROOT_DIR = Path().resolve()
+ROOT_DIR = Path(__file__).resolve().parent
 
 
 class WordPool(object):
@@ -74,7 +74,7 @@ class WordPool(object):
     def _get_default_pool(self) -> pd.Series:
         """Get the default word pool."""
 
-        path = ROOT_DIR / "src" / "stimpool" / "words" / "es_PR.dic"
+        path = ROOT_DIR / "words" / "es_PR.dic"
         pool = pd.read_csv(path, squeeze=True)
 
         return pool
