@@ -1,8 +1,8 @@
 name: release pypy
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
+
 jobs:
   release_pypy:
     runs-on: ubuntu-latest
