@@ -21,6 +21,11 @@ categories:
 template: |
   ## What’s Changed
 
+  Essentially the changes can be categorized as:
+    # Summarize changes here
+
+  A more detailed description is:
+
   $CHANGES
 
   ## :busts_in_silhouette: List of contributors
