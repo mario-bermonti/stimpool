@@ -7,7 +7,7 @@ project and helps its users.
 
 The following sections detail a variety of ways to contribute and how to get started.
 
-Credit will always be given to the people making contributions. :wink:
+Credit will always be given to the people making contributions.
 
 If you do decide to work on an issue, please indicate so in a comment to the issue
 so it's assigned to you and other people don't work on it simultaneously.
@@ -173,7 +173,6 @@ important details about making changes.
 7.  Commit your changes and push your branch to GitHub:
 
         $ git add .
-
         $ git commit
 
     Stimpool follows specific guidelines for commit messages:
@@ -216,17 +215,10 @@ improve the probability that your changes are accepted.
 - It is recommended to open an issue before starting work on anything. This will allow a chance to
   talk it over with the maintainers and validate your approach.
 
-## Deploying
+## Releasing stimpool
 
-A reminder for maintainers about how to deploy.
-
-Make sure all your changes are committed and the entry in the `Changelog.md` is updated. Then run:
-
-    $ bump2version patch # possible: major / minor / patch
-    $ git push
-    $ git push --tags
-
-GitHub create a new GitHub Release and deploy to PyPI if tests pass.
+Maintainers, please review [the guide for releasing new versions][release_guide]
+of stimpool on Github and Pypi.
 
 
 <!-- Credits -->
@@ -240,3 +232,4 @@ GitHub create a new GitHub Release and deploy to PyPI if tests pass.
 [download_python]: https://www.python.org/downloads/
 [stimpool_gh]: https://github.com/mario-bermonti/stimpool
 [commit_guide]: https://chris.beams.io/posts/git-commit/
+[release_guide]: ./release_guide.md
