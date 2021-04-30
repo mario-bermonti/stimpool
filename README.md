@@ -67,4 +67,4 @@ This package was created with [Cookiecutter][cookiecutter] and the [fedejaure/co
 [cookiecutter-modern-pypackage]: https://github.com/fedejaure/cookiecutter-modern-pypackage
 [project_docs]: https://stimpool.readthedocs.io/en/latest/
 [code_conduct]: ./CODE_OF_CONDUCT.md
-[contributing_guide]: ./docs/contributing.md
+[contributing_guide]: ./contributing.md
