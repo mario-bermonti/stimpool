@@ -7,7 +7,7 @@ project and helps its users.
 
 The following sections detail a variety of ways to contribute and how to get started.
 
-Credit will always be given to the people making contributions. :wink:
+Credit will always be given to the people making contributions.
 
 If you do decide to work on an issue, please indicate so in a comment to the issue
 so it's assigned to you and other people don't work on it simultaneously.
