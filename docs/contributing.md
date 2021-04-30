@@ -173,7 +173,6 @@ important details about making changes.
 7.  Commit your changes and push your branch to GitHub:
 
         $ git add .
-
         $ git commit
 
     Stimpool follows specific guidelines for commit messages:
