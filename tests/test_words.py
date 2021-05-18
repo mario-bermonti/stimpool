@@ -5,7 +5,7 @@ from typing import List, Optional
 import pandas as pd
 import pytest
 
-from stimpool.words import WordPool
+from stimpool import WordPool
 
 
 def test_get_default_pool() -> None:
