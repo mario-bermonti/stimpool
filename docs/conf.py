@@ -47,7 +47,7 @@ extensions = [
 ]
 
 # default for autodoc
-autoclass_content = "class"
+autoclass_content = "both"
 autodoc_member_order = "bysource"
 
 # autodocsumm config
