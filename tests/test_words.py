@@ -68,8 +68,8 @@ def test_check_accented_characters(word: str, expected: bool) -> None:
 @pytest.mark.parametrize(
     ("words", "exp", "how"),
     [
-        (["yes", "no", "yes", "no"], pd.Series(["yes", "yes"]), "keep"),
-        (["yes", "no", "yes", "no"], pd.Series(["no", "no"]), "remove"),
+        (["yes", "no", "yes", "no"], pd.Series(["yes", "yes"], dtype="object"), "keep"),
+        (["yes", "no", "yes", "no"], pd.Series(["no", "no"], dtype="object"), "remove"),
     ],
 )
 def test_get_words_meeting_criteria(words: List[str], exp: pd.Series, how: str) -> None:
@@ -119,7 +119,7 @@ def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> 
             ["al", "gato", "cabeza", "periódico"],
             1,
             None,
-            pd.Series(["al", "gato", "cabeza", "periódico"]),
+            pd.Series(["al", "gato", "cabeza", "periódico"], dtype="object"),
         ),
         # only min
         # some meet criteria
@@ -127,39 +127,54 @@ def test_check_word_length(word: str, min_len: int, max_len: int, exp: bool) -> 
             ["al", "gato", "cabeza", "periódico"],
             6,
             None,
-            pd.Series(["cabeza", "periódico"]),
+            pd.Series(["cabeza", "periódico"], dtype="object"),
         ),
         # only min
         # none meet criteria
-        (["al", "gato", "cabeza", "periódico"], 15, None, pd.Series([])),
+        (
+            ["al", "gato", "cabeza", "periódico"],
+            15,
+            None,
+            pd.Series([], dtype="object"),
+        ),
         # only max
         # all meet criteria
         (
             ["al", "gato", "cabeza", "periódico"],
             None,
             15,
-            pd.Series(["al", "gato", "cabeza", "periódico"]),
+            pd.Series(["al", "gato", "cabeza", "periódico"], dtype="object"),
         ),
         # only max
         # some meet criteria
-        (["al", "gato", "cabeza", "periódico"], None, 5, pd.Series(["al", "gato"])),
+        (
+            ["al", "gato", "cabeza", "periódico"],
+            None,
+            5,
+            pd.Series(["al", "gato"], dtype="object"),
+        ),
         # only max
         # none meet criteria
-        (["al", "gato", "cabeza", "periódico"], None, 1, pd.Series([])),
+        (["al", "gato", "cabeza", "periódico"], None, 1, pd.Series([], dtype="object")),
         # only min y max
         # all meet criteria
         (
             ["al", "gato", "cabeza", "periódico"],
             0,
             15,
-            pd.Series(["al", "gato", "cabeza", "periódico"]),
+            pd.Series(["al", "gato", "cabeza", "periódico"], dtype="object"),
         ),
         # only min y max
         # some meet criteria
-        (["al", "gato", "cabeza", "periódico"], 2, 5, pd.Series(["al", "gato"])),
+        (
+            ["al", "gato", "cabeza", "periódico"],
+            2,
+            5,
+            pd.Series(["al", "gato"], dtype="object"),
+        ),
         # only min y max
         # none meet criteria
-        (["al", "gato", "cabeza", "periódico"], 3, 1, pd.Series([])),
+        (["al", "gato", "cabeza", "periódico"], 3, 1, pd.Series([], dtype="object")),
     ],
 )
 def test_select_words_of_length(
@@ -245,10 +260,10 @@ def test_remove_conjugation_suffix_from_word(word: str, exp: str) -> None:
 def test_clean_conjugation_suffixes(words: List[str], exp: List[Optional[str]]) -> None:
     """Test the _clean_conjugation_suffixes with different cases."""
 
-    exp: pd.Series = pd.Series(exp)  # type: ignore
+    exp: pd.Series = pd.Series(exp, dtype="object")  # type: ignore
     exp = exp.reset_index(drop=True)  # type: ignore
     word_pool = WordPool(words)
-    words = pd.Series(words)
+    words = pd.Series(words, dtype="object")
     obs = word_pool._clean_conjugation_suffixes(words)
     obs = obs.reset_index(drop=True)
 
