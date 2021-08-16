@@ -1,4 +1,4 @@
-sphinx==3.5.3
+sphinx==4.1.2
 recommonmark==0.7.1
 sphinx_markdown_tables==0.0.15
 sphinx-autodoc-typehints==1.12.0
