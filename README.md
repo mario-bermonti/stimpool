@@ -7,7 +7,7 @@
 ![GitHub](https://img.shields.io/github/license/mario-bermonti/stimpool)
 [![Tests](https://github.com/mario-bermonti/stimpool/workflows/tests/badge.svg)](https://github.com/mario-bermonti/stimpool/actions?workflow=tests)
 [![codecov](https://codecov.io/gh/mario-bermonti/stimpool/branch/master/graph/badge.svg?token=GGADPVQ5G2)](https://codecov.io/gh/mario-bermonti/stimpool)
-[![Read the Docs](https://readthedocs.org/projects/stimpool/badge/)](https://stimpool.readthedocs.io/en/latest/)
+[![Read the Docs](https://readthedocs.org/projects/stimpool/badge/)](https://stimpool.readthedocs.io/)
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
@@ -16,7 +16,7 @@ Easily create stimuli pools for cognitive, learning, and psycholinguistics resea
 
 
 * GitHub repo: <https://github.com/mario-bermonti/stimpool.git>
-* Documentation: <https://stimpool.readthedocs.io/en/latest/>
+* Documentation: <https://stimpool.readthedocs.io/>
 * Free software: BSD-3 Clause
 
 
@@ -65,6 +65,6 @@ This package was created with [Cookiecutter][cookiecutter] and the [fedejaure/co
 
 [cookiecutter]: https://github.com/cookiecutter/cookiecutter
 [cookiecutter-modern-pypackage]: https://github.com/fedejaure/cookiecutter-modern-pypackage
-[project_docs]: https://stimpool.readthedocs.io/en/latest/
+[project_docs]: https://stimpool.readthedocs.io/
 [code_conduct]: ./CODE_OF_CONDUCT.md
 [contributing_guide]: ./contributing.md
