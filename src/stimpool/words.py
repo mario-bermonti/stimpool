@@ -309,7 +309,7 @@ class WordPool(object):
         """
 
         path = f"{filename}.csv"
-        self._pool_cleaned.name = "words"
+        self._pool_cleaned.name = "word"
 
         self._pool_cleaned.to_csv(path, index=False)
 
