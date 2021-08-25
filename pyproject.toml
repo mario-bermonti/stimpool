@@ -1,7 +1,7 @@
 
 [tool.poetry]
 name = "stimpool"
-version = "0.2.2"
+version = "0.2.3"
 description = "Create stimuli pools for psychological research"
 authors = ["Mario E. Bermonti Pérez <mbermonti1132@gmail.com>"]
 
