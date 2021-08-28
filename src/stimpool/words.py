@@ -266,7 +266,7 @@ class WordPool(object):
 
         return pool_cleaned
 
-    def sample_pool(self, n: int, reproducible: bool = True) -> pd.Series:
+    def sample_pool(self, n: int, reproducible: bool = True) -> None:
         """Sample from the word pool.
 
         This is just a helper function that uses pandas.Series.sample.
