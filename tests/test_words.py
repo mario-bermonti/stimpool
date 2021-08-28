@@ -274,8 +274,10 @@ def test_clean_conjugation_suffixes(words: List[str], exp: List[Optional[str]]) 
 def test_sample_pool_is_reproducible(words: List[str]) -> None:
     """Test that sample_pool is reproducible."""
 
-    word_pool = WordPool(words)
-    obs1 = word_pool.sample_pool(n=3)
-    obs2 = word_pool.sample_pool(n=3)
+    word_pool1 = WordPool(words)
+    word_pool1.sample_pool(n=3)
 
-    obs1.equals(obs2)
+    word_pool2 = WordPool(words)
+    word_pool2.sample_pool(n=3)
+
+    word_pool1.words.equals(word_pool2.words)
