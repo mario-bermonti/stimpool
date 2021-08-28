@@ -267,7 +267,7 @@ class WordPool(object):
         return pool_cleaned
 
     def sample_pool(self, n: int, reproducible: bool = True) -> pd.Series:
-        """Return a sample from the word pool.
+        """Sample from the word pool.
 
         This is just a helper function that uses pandas.Series.sample.
         You can read its [complete documentation]
@@ -282,18 +282,13 @@ class WordPool(object):
             Specifies whether the sample obtained should be reproducible.
             This is important to guarantee the reproducibility of
             research (Default=True)
-
-        Returns
-        -------
-        pd.Series
-            pool sample of specified size
         """
 
         reproducible_coded: Optional[int] = 1 if True else None
 
-        sample = self._pool_cleaned.sample(n=n, random_state=reproducible_coded)
-
-        return sample
+        self._pool_cleaned = self._pool_cleaned.sample(
+            n=n, random_state=reproducible_coded
+        )
 
     def save_pool(self, filename: str = "word pool") -> None:
         """Save the word pool to a csv file.
